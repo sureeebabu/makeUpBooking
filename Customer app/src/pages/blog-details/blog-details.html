@@ -1,0 +1,81 @@
+<!--- Theme Parallax - News -->
+<ion-header header-ios>
+  <ion-navbar transparent [ngClass]="{'active':isClassActive()}">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title  text-left>{{getTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+  <!--- Header Big Image-->
+  <ion-content elastic-header>
+    <ion-item no-lines background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + getImage + ')'}">
+        <div title-block>
+          <span new-category>{{getTime}}</span>
+            <!--- Parallax Title -->
+          <h1 parallax-title text-wrap>{{getTitle}}</h1>
+        </div>
+    </ion-item>
+
+    <ion-item-group>
+    <ion-item-divider border no-lines>
+    <div item-subtitle>
+        <ion-row>
+          <!-- Shows the number of comment by the user-->
+            <ion-col>
+              <button ion-button icon-left clear color="head" style="text-transform: none;">
+                <ion-icon name="md-chatboxes"></ion-icon>
+                <div *ngIf = "(comments)?.length > '1'"> {{(comments)?.length}} Comments</div>
+                <div *ngIf = "(comments)?.length == '1'"> {{(comments)?.length}} Comment</div>
+              </button>
+            </ion-col>
+
+            <ion-col center text-center>    
+                <button ion-button clear small icon-left (click)="facebookShare()">
+                    <ion-icon name='logo-facebook' color="fb-color"></ion-icon>
+                  </button>
+                  <button ion-button clear small icon-left (click)="instagramShare()">
+                    <ion-icon name='logo-instagram' color="insta-color"></ion-icon>
+                  </button>
+            </ion-col>
+        </ion-row>      
+    </div>  
+    </ion-item-divider>
+      <ion-item no-margin no-lines>
+        <!-- Content Description-->
+        <p parallax-description text-wrap>{{getDesc}}</p>
+      </ion-item>
+
+    </ion-item-group>
+
+<button ion-button block color="head">{{'All Comments' | translate}}</button>
+<ion-fab bottom right >
+    <button ion-fab color="head"><ion-icon name="chatbubbles"></ion-icon></button>
+    <ion-fab-list side="top">
+       <button ion-fab (click)="comment()">
+          <ion-icon name="create" color="head"></ion-icon>  
+          <ion-label>{{'Write comment' | translate}}</ion-label>
+       </button> 
+       <button ion-fab (click)="shareSheetShare()">
+        <ion-icon name="share" color="head"></ion-icon>
+        <ion-label>{{'Share' | translate}}</ion-label>
+     </button>
+    </ion-fab-list>
+  </ion-fab>
+  
+  <!-- Comment List from the users-->
+    <ion-list no-lines class="chat-list">
+        <ion-item *ngFor="let item of comments" class="chat-item" text-wrap>
+          <ion-avatar item-left>
+            <img src="{{item.profpic || 'assets/imgs/pic.jpg'}}" alt="">
+          </ion-avatar>
+          <div  class="bubble me">
+            <h3 style="color:#0e0307"><b>{{item.name}}</b></h3>
+            <h6 class="review-date">{{item.datetime}}</h6>
+            <h3 text-wrap>{{item.comment}}</h3> 
+          </div>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+  

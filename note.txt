@@ -1,0 +1,43 @@
+CUSTOMER APP APK LINK
+
+https://drive.google.com/file/d/126bCYTqk_gnXQ-IF6KyVJqQe1rrDRmE_/view?usp=sharing
+
+ADMIN PANEL APK LINK
+
+https://drive.google.com/file/d/1YPVwtf6D-ylv9IAMPbgev59IH4wteffb/view?usp=sharing
+
+firebase realtime database  cmd -->	npm i  --save firebase angularfire2
+
+									npm install firebase angularfire2 --save
+
+
+firebase Firestore cmd   --> npm i --s firebase @angular/fire
+
+
+
+onSubmit() {
+    this.submitted = true;
+
+    if (this.custService.form.valid) {
+      if (this.custService.form.get('$key').value == null)
+      {
+         this.custService.insertCustomer(this.custService.form.value);
+      } else {
+        this.custService.updateCustomer(this.custService.form.value);
+       }
+    }
+        this.showSuccessMsg = true;
+        setTimeout(() => this.showSuccessMsg = false, 3000);
+        this.submitted = false;
+        this.custService.form.reset();
+  }
+  
+  ------------------------------------
+  {
+    apiKey: "AIzaSyB8Zk13hkijYneTwHAwraRXIBe6pAe2yzg",
+    authDomain: "angular7firestore-39ad3.firebaseapp.com",
+    databaseURL: "https://angular7firestore-39ad3.firebaseio.com",
+    projectId: "angular7firestore-39ad3",
+    storageBucket: "angular7firestore-39ad3.appspot.com",
+    messagingSenderId: "696234368446"
+  }

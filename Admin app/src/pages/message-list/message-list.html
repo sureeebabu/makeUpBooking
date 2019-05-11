@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="head">
+      <ion-title text-center>Messages List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!-- Message List-->
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+            <ion-item-sliding *ngFor="let item of messageList" >
+              <ion-item border no-lines>
+            <!--Title-->
+            <ion-icon name="mail" color="head" item-start></ion-icon>
+            <h2 item-title><b>{{item.title}}</b></h2>
+            <!--Date-->
+            <h3 item-subtitle><span style="font-weight:bold">Date:</span> {{item.dateTime}}</h3>
+          </ion-item> 
+          <ion-item-options side="right">
+
+              <button ion-button color="secondary" (click)="messageDetailsPage(item.id)">
+                  <ion-icon name="eye"></ion-icon>
+                  Details
+                </button>
+
+                  <button ion-button color="danger" (click)="deletemessage(item.id)">
+                  <ion-icon name="trash"></ion-icon>
+                  Delete
+                </button>
+                </ion-item-options>
+              </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

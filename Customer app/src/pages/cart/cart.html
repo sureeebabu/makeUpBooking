@@ -1,0 +1,126 @@
+<ion-header no-border class="carthead">
+    <ion-navbar color="head">
+      <ion-title text-center>{{'Cart' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header> 
+
+<ion-content no-padding>
+  <!-- When Cart is Empty this show-->
+<div *ngIf="dataProvider.cart">
+    <div *ngIf="dataProvider.cart.line_items.length == 0">
+        <ion-item no-lines>
+         <img src="./assets/imgs/empty.jpg" />
+        </ion-item> 
+        <div text-center>
+        <button ion-button round color="head" style="text-transform: none;" (click)="goShop()">{{'Go Shopping' | translate}}</button>
+        </div>
+    </div>
+  </div>
+  
+<!-- Product information in Cart shows here-->
+  <div *ngIf="dataProvider.cart.line_items">
+   <div *ngIf="dataProvider.cart.line_items.length != 0">
+  <ion-list>  
+      <ion-card *ngFor="let item of dataProvider.cart.line_items">
+      <ion-item color="light">
+      <ion-thumbnail item-left>
+        <img src="{{item.image}}" style="width: 100px !important; height: 100px !important;"/>
+      </ion-thumbnail>
+      <h2 class="itemname"><b>{{item.name}}</b></h2>
+      <h4 wrap-text > {{'Price' | translate}}: <span>{{1*item.price | currency:values.currency:true:'1.2-2'}}</span></h4>
+       <h4 wrap-text> {{'SubTotal' | translate}}: <span>{{1*item.price*item.quantity | currency:values.currency:true:'1.2-2'}}</span></h4>
+      </ion-item>
+      <ion-item class="compact">
+      <ion-row no-padding>
+        <ion-col col-8>
+            <button ion-button clear color="danger">Qty:</button>
+          <button ion-button icon-only clear color="danger" (click)="deleteFromCart(item.product_id)">
+            <ion-icon name="remove-circle"></ion-icon>
+          </button>
+          <button ion-button clear color="danger">{{item.quantity}}</button>
+          <button ion-button icon-only clear color="danger" (click)="addToCart(item.product_id)">
+            <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </ion-col>  
+      </ion-row>
+    </ion-item>
+      </ion-card>
+      <button ion-button color="head" full >{{'Total' | translate}}: {{1*dataProvider.total | currency:values.currency:true:'1.2-2'}}</button>
+      </ion-list> 
+
+  <!-- Payment Method information Display Here-->
+   <div>
+      <ion-list style="margin:0px" text-wrap radio-group [(ngModel)]="form.payment_method">
+          <ion-item style=" background-color:#f2f2f2;"  no-lines text-center>
+              <strong style="color:#6f0479; font-size: 15px;" class="divider-name">{{'Payment Method' | translate}}</strong> 
+           </ion-item>
+      <ion-item no-padding *ngIf="this.setting.paypal">
+         <ion-label style="padding-left:15px">PayPal</ion-label>
+         <ion-radio value="paypal"></ion-radio>
+      </ion-item>
+      <ion-item no-padding *ngIf="this.setting.cod">
+         <ion-label style="padding-left:15px">Cash On Delivery</ion-label>
+         <ion-radio value="cod"></ion-radio>
+      </ion-item>
+        <ion-item no-padding *ngIf="this.setting.bitcoin">
+         <ion-label style="padding-left:15px">Bitcoin</ion-label>
+         <ion-radio value="bitcoin"></ion-radio>
+      </ion-item>
+      </ion-list>   
+   </div>
+
+  <!-- Bitcoin Payment information Display Here-->
+     <div *ngIf="form.payment_method =='bitcoin'" style="margin:0px;background-color:#f2f2f2;padding:10px">
+      <ion-label text-center>Make Payment with Bitcoin</ion-label>
+       <h3 text-center>GrandTotal: <span><b>{{1*dataProvider.total | currency:values.currency:true:'1.2-2'}}</b></span></h3>
+       <div *ngFor="let currency of currencies">
+       <h5 text-center>Equivalent to <span><b>{{ (dataProvider.total / currency.price_usd).toFixed(8) }} BTC</b></span></h5>
+       </div>
+
+       <ion-card>  
+          <ion-card-content>
+           <ion-label text-center>{{ 'Bitcoin Address' | translate }}</ion-label>
+           <ion-input [(ngModel)]="bitcoinaddress" style="font-size: 11px;" type="text" class= "placeholder-text"></ion-input>
+           <button ion-button block (click)="process();" clear>{{ 'View QR Code' | translate }}</button>
+           <img *ngIf="displayQrCode()" [src]="generated" class="qrcode" text-center/>
+          </ion-card-content>
+        </ion-card>
+        
+      <ion-card *ngFor="let currency of currencies">
+        <ion-card-header text-center color="danger">Note</ion-card-header>
+         <ion-card-content>
+          <p> Make sure you send exactly <span><b>{{ (dataProvider.total / currency.price_usd).toFixed(8) }} BTC</b></span> to the above address excluding transaction fee</p>
+          <p>DBSStudio is not responsible for payment made with BTC value other than that stated on the invoice BookingForm</p>
+        </ion-card-content>
+      </ion-card>
+
+       <ion-card *ngFor="let currency of currencies">
+        <ion-card-header text-center color="danger">Note</ion-card-header>
+           <div class="currencies" padding>
+        <ion-row class="currency" *ngFor="let currency of currencies">
+            <ion-col>
+        <img class="logo" [src]="getIcon(currency.symbol)" alt="">
+         </ion-col>
+       <ion-col>
+            <p class="name">1 {{ currency.name }}</p>
+          </ion-col>
+       <ion-col>
+  <p class="dollars">${{ currency.price_usd }}</p>
+  <p class="evolution" [ngClass]="{'negative': currency.percent_change_1h < 0 }">{{currency.percent_change_1h }} %</p>
+</ion-col>
+</ion-row>
+</div>
+</ion-card>
+     </div>
+ </div>
+</div>
+
+<div *ngIf="dataProvider.cart.line_items.length != 0">  
+ <button ion-button color="head"  large full [disabled]="disableSubmit" (click)="placeOrder(dataProvider.cart.line_items)">Place Order</button>   
+</div>
+<!-- When error occur -->
+{{dataProvider.prob  | json}}
+</ion-content>
+
+   
+

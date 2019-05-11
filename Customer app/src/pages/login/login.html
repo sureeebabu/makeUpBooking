@@ -1,0 +1,51 @@
+<ion-content padding class="transparent-header">
+    <ion-header>
+      <ion-navbar>
+      </ion-navbar>
+    </ion-header>
+    <ion-thumbnail>
+        <img src="./assets/imgs/logo2.jpg" />
+    </ion-thumbnail>
+    <!-- User Login form-->
+    
+  <div class="login-content" *ngIf="!values.isLoggedIn">
+
+    <form #f="ngForm"> 
+    <div padding>
+
+      <ion-item>
+        <ion-input  required type="email" [(ngModel)]="form.email" name="firstname" placeholder="{{'Email' | translate}}"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-input required type="password" [(ngModel)]="form.password" name="password" placeholder="{{'Password' | translate}}"></ion-input>
+      </ion-item>
+
+      <div  class="margin">
+        <h4 style="color:#fff" text-center>{{errorSigninMessage}}</h4>
+      </div>
+     
+      <button ion-button block outline  color="light" class="login-button" type ="submit" [disabled]="disableSubmit" (click)="login()">{{'Login' | translate}}</button>
+    </div>
+    </form>
+
+    </div>
+
+    <div class="strike">
+      <span>{{'OR' | translate}}</span>
+    </div>
+
+    <button ion-button block clear  (click)="forgotten()" color="light" class="login-button">{{'Forgot login details?' | translate}} <b>{{'Get Help' | translate}} </b></button>
+    
+  </ion-content>
+
+<!-- Navigate to signup Page if no account yet-->
+  <ion-footer>
+    <ion-toolbar class="footer">
+      <div (click)="goSignup()">
+        <span>{{'Dont have an account?' | translate}}<strong>  {{'Sign up here' | translate}}</strong>.</span>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+

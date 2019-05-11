@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="head">
+        <ion-title text-center>{{'Notifications' | translate}}</ion-title>
+        <ion-buttons end>
+          <button ion-button clear icon-only (click)="close()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+    
+  <ion-content>
+  <ion-spinner *ngIf="!notifyList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner>
+    <ion-grid no-padding>  
+      <ion-row>
+        <ion-col col-12>
+          <ion-list>
+                <ion-item border no-lines *ngFor="let item of notifyList">
+              <!--Title-->
+              <h4 item-title text-wrap><b>{{item.notify}}</b></h4>
+              <!--date-->
+              <h3 item-subtitle><span style="font-weight:bold">Date:</span> {{item.dateTime}}</h3>
+            </ion-item> 
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- Shows when thers is no notification-->
+    <div *ngIf = "(notifyList)?.length == '0'">
+        <ion-item no-lines>
+         <img src="./assets/imgs/emptynotify.png" style="height: 250px; width: 300px; padding-left:50px;"/>
+        </ion-item> 
+        <div text-center>
+        <h3 style="color:grey;">{{'No new Notification' | translate}}</h3>
+       </div>
+    </div>
+  </ion-content>
+  

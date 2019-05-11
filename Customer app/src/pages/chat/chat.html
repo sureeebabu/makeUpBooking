@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar color="head">
+      <ion-title text-center>
+        {{'Customer Care' | translate}}
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only clear style="text-transform: none;">
+        <ion-icon name="radio-button-off" color="secondary"></ion-icon>
+        online
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+   <!--Show chat between agent and user-->
+    <ion-list no-lines class="chat-list">
+      <ion-item *ngFor="let message of messages" class="chat-item" text-wrap>
+        <ion-avatar item-left *ngIf="message.sender == 'api'">
+          <img src="assets/imgs/agent.png" alt="">
+        </ion-avatar>
+        <ion-avatar item-right *ngIf="message.sender == 'me'">
+          <!--<img src="assets/imgs/customer.png" alt="">-->
+          <img src="assets/imgs/pic.jpg">
+        </ion-avatar>
+        <div *ngIf="message.sender == 'api'" class="bubbles me">
+          <h5 style="color:#000"><b>Agent</b></h5>
+          <h3> {{ message.text }}</h3>
+        </div>
+        <div *ngIf="message.sender == 'me'" class="bubble you">
+            <h5 style="color:#fff"><b>Customer</b></h5>
+          <h3 style="color:#fff"> {{ message.text }}</h3>
+        </div>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>
+  <!-- User message here -->
+  <ion-footer>
+    <ion-toolbar>
+      <ion-item>
+        <ion-input #input type="text" placeholder="Your message here.." [(ngModel)]="text"></ion-input>
+        <button ion-button icon-only item-right clear (click)="sendText(); input.setFocus()">
+          <ion-icon name="send" color="head"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-toolbar>
+  </ion-footer>

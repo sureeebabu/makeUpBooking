@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Payment Settings</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm">
+        <!-- Currency list-->
+          <ion-list>
+              <ion-item style="padding-top:10px;padding-bottom: 5px;">
+                  <ion-label floatingy>Currency</ion-label>
+                     <ion-select [(ngModel)]="form.currency" name="currency">
+                        <ion-option value="USD">US Dollars</ion-option>
+                        <ion-option value="INR">Indian Rupees</ion-option>
+                        <ion-option value="KWD ">Kuwaiti Dinar</ion-option>
+                        <ion-option value="EUR">Euro</ion-option>
+                     </ion-select>
+               </ion-item>
+               
+                <!--Cash on Delivery Payment-->
+             <ion-item  style="margin-bottom:4px" no-lines>
+                <ion-label *ngIf="form.cod" color="head" style="font-size: 15px;">COD Enabled</ion-label>
+                <ion-label *ngIf="!form.cod" color="danger" style="font-size: 15px;">COD Disabled</ion-label>
+                <ion-toggle checked="true" [(ngModel)]="form.cod" name="subscribe"></ion-toggle>
+             </ion-item>
+
+                <!--Paypal Payment-->
+             <ion-item  style="margin-bottom:4px" no-lines>
+                <ion-label *ngIf="form.paypal" color="secondary" style="font-size: 15px;">Paypal Enabled</ion-label>
+                <ion-label *ngIf="!form.paypal" color="danger" style="font-size: 15px;">Paypal Disabled</ion-label>
+                <ion-toggle checked="true" [(ngModel)]="form.paypal" name="paypal"></ion-toggle>
+             </ion-item>
+
+             <div *ngIf="form.paypal">
+                <form #f="ngForm">
+                   <ion-list>
+                      <ion-item>
+                         <ion-label floating><b>Add Client ID</b></ion-label>
+                         <ion-input required type="email" [(ngModel)]="form.client_id"  name="client_id"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                         <ion-label floating><b>Add PayPal Environment Sandbox</b></ion-label>
+                         <ion-input required type="text" [(ngModel)]="form.environment_sandbox" name="environment_sandbox"></ion-input>
+                      </ion-item>
+                   </ion-list>
+                </form>
+             </div>
+
+            <!--Bitcoin Payment-->
+             <ion-item  style="margin-bottom:4px" no-lines>
+                <ion-label *ngIf="form.bitcoin" color="secondary" style="font-size: 15px;">Bitcoin Enabled</ion-label>
+                <ion-label *ngIf="!form.bitcoin" color="danger" style="font-size: 15px;">Bitcoin Disabled</ion-label>
+                <ion-toggle checked="true" [(ngModel)]="form.bitcoin" name="subscribe"></ion-toggle>
+             </ion-item>
+
+             <div *ngIf="form.bitcoin">
+                <form #f="ngForm">
+                   <ion-list>
+                      <ion-item>
+                         <ion-label floating><b>Add Bitcoin Address</b></ion-label>
+                         <ion-input required type="email" [(ngModel)]="form.bitcoin_address"  name="bitcoin_address"></ion-input>
+                      </ion-item>
+                   </ion-list>
+                </form>
+             </div>
+
+        </ion-list>
+  </form>
+
+    
+       <div style="padding-left: 100px;">
+          <button  ion-button  round style="background-color:#660066; color:#fff" [disabled]="disableSubmit" (click)="saveSetting()">Save Payment</button>
+        </div>
+    
+</ion-content>

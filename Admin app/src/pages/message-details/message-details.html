@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title>{{messageDetails.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <div *ngIf="messageDetails">
+    <ion-card>
+    <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-12>
+            <ion-list>
+                <ion-item border no-lines>
+                <!--message title-->
+                <ion-icon name="mail" color="head" item-start></ion-icon>
+                <h2 item-title><b>Title: {{messageDetails.title}}</b></h2>
+                <!--Message details-->
+                <h3 item-subtitle><span style="font-weight:bold">Email:</span> {{messageDetails.email}}</h3>
+                <h3 item-subtitle><span style="font-weight:bold">Date:</span> {{messageDetails.dateTime}}</h3>
+              </ion-item>
+              <ion-item>
+                  <h3 text-center><b>Message</b></h3>
+                  <p text-wrap>{{messageDetails.message}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

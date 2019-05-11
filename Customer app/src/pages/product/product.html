@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar color="head">
+  <ion-title text-center>{{'Products' | translate}}</ion-title>
+  <ion-buttons end>
+      <!-- Badge for cart count-->
+      <button ion-button id="notification-button" (click)="pushToCart($event)" >
+          <ion-icon name="cart" class="cart-icon">
+          <ion-badge id="notifications-badge" color="danger">{{values.qty}}</ion-badge>
+          </ion-icon>
+        </button>
+  </ion-buttons>
+    </ion-navbar>
+  <ion-toolbar color="head">
+      <ion-searchbar [(ngModel)]="searchstring" (input)="searchitem($event)" placeholder="Search"></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+    
+  <ion-content no-padding> 
+     <div *ngIf="productsList" class="prod">
+          <div *ngIf="productsList.length">
+    <ion-grid>     
+      <!-- Product details --> 
+      <ion-row wrap>   
+        <ion-col col-6 *ngFor="let item of productsList" >
+          <ion-item class="cat2" (click)="getProductDetails(item.id)">
+          <div *ngIf="item.available"  class="ribbon pop-in">30% off</div>
+          <div *ngIf="!item.available"  class="ribbon pop-in">out of stock</div>
+          <img src="{{item.downloadURL}}">
+          <h4 text-center><b>{{item.name}}</b></h4>
+            <ion-row class="price-padding">
+              <ion-col>
+                  <div style="font-size:15px;color:red" *ngIf="item.sale_price">{{1*item.sale_price | currency:values.currency:true:'1.2-2'}}</div>
+              </ion-col>
+              <ion-col text-right>
+                 <div style="font-size:15px;color:green" *ngIf="!item.sale_price">{{1*item.regular_price | currency:values.currency:true:'1.2-2'}}</div>
+                 <div style="font-size:15px;color:green" *ngIf="item.sale_price"><del>{{1*item.regular_price | currency:values.currency:true:'1.2-2'}}</del></div>
+              </ion-col>
+           </ion-row>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  </ion-grid> 
+          </div>
+      </div>
+  </ion-content>
+  
+  
+  
+  
+
+
+
+
+
+
+

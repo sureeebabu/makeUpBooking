@@ -1,0 +1,112 @@
+<ion-header no-border>
+  <ion-navbar  color="head">
+    <ion-title text-center>
+      {{'About us' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+    
+  <ion-fab bottom right >
+    <button ion-fab color="head"><ion-icon name="chatbubbles"></ion-icon></button>
+    <ion-fab-list side="top">
+       <button ion-fab (click)="goChat()">
+          <ion-icon name="chatbubbles" color="head"></ion-icon>  
+          <ion-label>{{'Chat with customer care' | translate}}</ion-label>
+       </button> 
+       <button ion-fab (click)="goMessage()">
+        <ion-icon name="mail" color="head"></ion-icon>
+        <ion-label>{{'Message Us' | translate}}</ion-label>
+     </button>
+    </ion-fab-list>   
+  </ion-fab>
+<!-- Header Banner-->
+  <div class="card-background-page" *ngFor="let item of abouts">
+      <div padding background-size id="elastic-header"   [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+        <ion-thumbnail>
+          <img [src]="item.imageUrl"/>
+        </ion-thumbnail>
+        <h3 text-center parallax-title>{{item.title}}</h3>
+        <p text-center style="color:#fff; font-weight:bold">{{item.subtitle}}</p>
+      </div>
+    </div>
+  
+  <!--Map is here-->
+  <ion-card>
+    <div #map id="my-map"></div>  
+  </ion-card>
+  
+<!-- Store contact details are here-->
+  <ion-card class="adv-map">
+    <ion-item>
+      <ion-icon  large item-start name="pin" color="head"></ion-icon>
+      <h2><b>44, Saint Paul Road, Ionic estate, US</b></h2>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon  large item-start name="mail" color="head"></ion-icon>
+      <h2><b>support@dbs.net</b></h2>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon  large item-start name="call" color="head"></ion-icon>
+      <h2><b>+12345678901</b></h2>
+    </ion-item>
+  </ion-card>
+
+  <!-- Store social media details are here-->
+<ion-card>
+    <ion-list>
+        <ion-item  (click)="openFacebookUrl('https://www.facebook.com')">
+            <ion-icon  large item-start name="logo-facebook" color="fb-color"></ion-icon>
+            <h2><b>DBSIonic</b></h2>
+          </ion-item>
+      
+          <ion-item  (click)="openTwitterUrl('https://www.twitter.com')">
+            <ion-icon  large item-start name="logo-twitter" color="twitter-color"></ion-icon>
+            <h2><b>@DBSIonic</b></h2>
+          </ion-item>
+      
+          <ion-item  (click)="openInstagramUrl('https://www.instagram.com')">
+            <ion-icon  large item-start name="logo-instagram" color="insta-color"></ion-icon>
+            <h2><b>DBSionic</b></h2>
+          </ion-item>
+   
+          <ion-item  (click)="openYoutubeUrl('https://www.youtube.com')">
+            <ion-icon  large item-start name="logo-youtube" color="danger"></ion-icon>
+            <h2><b>DBSionic</b></h2>
+          </ion-item>
+      
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+        <ion-item (click)="openTermsModal()">
+            <ion-icon  large item-start name="list-box" color="head"></ion-icon>
+            <h2><b>Terms and Privacy policy</b></h2>
+          </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <img src="./assets/imgs/mcard.png" />    
+          </ion-col>
+        <ion-col>
+          <img src="./assets/imgs/visa.png" />  
+        </ion-col>
+        <ion-col>
+          <img src="./assets/imgs/paypal.png" />  
+        </ion-col>
+        <ion-col>
+          <img src="./assets/imgs/bitcoins.png" />  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+</ion-content>

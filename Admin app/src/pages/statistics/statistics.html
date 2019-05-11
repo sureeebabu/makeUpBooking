@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar color="head">
+        <button ion-button menuToggle>
+            <ion-icon name="menu" color="light"></ion-icon>
+         </button>
+      <ion-title text-center>Update Chart</ion-title>
+    </ion-toolbar>
+</ion-header>
+<!-- Updating booking statistics-->
+  <ion-content>
+    <ion-row align-items-end>
+      <ion-col col-2>
+        <button ion-button icon-only outline (click)="booking.expense = !booking.expense" [color]="booking.expense ? 'danger' : 'primary'">
+          <ion-icon name="remove" *ngIf="booking.expense"></ion-icon>
+          <ion-icon name="add" *ngIf="!booking.expense"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-5>
+        <ion-item>
+          <ion-label floating>Value</ion-label>
+          <ion-input type="number" [(ngModel)]="booking.value"></ion-input>
+        </ion-item>
+  
+      </ion-col>
+      <ion-col col-5>
+        <ion-item>
+          <ion-label floating>Month</ion-label>
+          <ion-select [(ngModel)]="booking.month">
+            <ion-option [value]="month.value" *ngFor="let month of months">{{ month.name }}</ion-option>
+          </ion-select>
+        </ion-item>
+  
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="head" (click)="addTransaction()">Update</button>
+      </ion-col>
+    </ion-row>
+  
+    <ion-card [hidden]="!chartData">
+      <ion-card-header>
+        Booking Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #valueBarsCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  
+  </ion-content>

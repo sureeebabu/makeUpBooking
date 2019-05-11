@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar color="head">
+      <ion-title text-center>{{'Settings' | translate}}</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <!-- Language setting-->
+       <ion-list>
+         <ion-item (click)="openLangModal()">
+         <ion-icon name='settings' item-start></ion-icon>
+         <ion-label>{{'AppLanguage' | translate}}</ion-label>
+        </ion-item>
+    <!-- Notification setting-->
+        <ion-item>
+        <ion-toggle color="main"></ion-toggle>
+        <ion-label class="label">{{'EnableNotifications' | translate}}</ion-label>
+        <ion-icon name='notifications' item-start></ion-icon>
+        </ion-item>
+    <!-- Get App version -->
+        <ion-item (click)="openAppVersionModal()">
+        <ion-icon name='logo-android' item-start></ion-icon>
+        <ion-label>{{'AppVersion' | translate}}</ion-label>
+        </ion-item>
+    <!--  Get Rate App -->
+         <ion-item (click)="rateApp()">
+         <ion-icon name='star' item-start></ion-icon>
+         <ion-label>{{'RateApp' | translate}}</ion-label>
+         </ion-item>
+    <!-- Get Privacy-->
+         <ion-item (click)="openTermsModal()">
+         <ion-icon name='list-box' item-start></ion-icon>
+         <ion-label>{{'Terms & Privacy Policy' | translate}}</ion-label>
+         </ion-item>
+    <!-- Get faq-->
+          <ion-item (click)="openFaqModal()">
+          <ion-icon name='list' item-start></ion-icon>
+          <ion-label>{{'FAQ' | translate}}</ion-label>
+          </ion-item>
+       </ion-list>
+  </ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Blogs List</ion-title>
+      <ion-buttons end>
+          <button ion-button clear icon-only (click)="addBlog()">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+      <!-- Search for Blog-->
+      <ion-toolbar color="head">
+        <ion-searchbar [(ngModel)]="searchstring" (input)="searchitem($event)" placeholder="Search Blog"></ion-searchbar>
+      </ion-toolbar>
+</ion-header>
+
+<!-- Blog List-->
+<ion-content>
+<ion-grid no-padding>
+  <ion-row>
+    <ion-col col-12>
+      <!-- Content Medium Item With Image-->
+      <ion-list>
+          <ion-item-sliding *ngFor="let item of blogList">
+            <ion-item border no-lines>
+          <!--Image-->
+          <ion-thumbnail item-left>
+            <img src ="{{item.downloadURL}}">   
+          </ion-thumbnail>
+          <!--Title-->
+          <h2 item-title><b>{{item.title}}</b></h2>
+          <!--Date-->
+          <h3 item-subtitle><span style="font-weight:bold">Date:</span> {{item.dateTime}}</h3>
+        </ion-item> 
+        <ion-item-options side="right">
+         <button ion-button color="secondary" (click)="edit(item)">
+            <ion-icon name="create"></ion-icon>
+                Edit Item
+            </button>
+                <button ion-button color="danger" (click)="deleteblog(item.id)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+              </ion-item-options>
+            </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+
+
+

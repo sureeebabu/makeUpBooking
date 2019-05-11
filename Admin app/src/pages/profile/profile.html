@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>My Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- Admin Profile-->
+<ion-content> 
+    <div style="height: 100%;">
+        <ion-grid class="profileback">
+            <ion-row>
+              <ion-col col-25></ion-col>
+              <ion-col col-50>
+                    <div>
+                    <img src="{{userProfile?.downloadURL || 'assets/imgs/pic.jpg'}}" class="circle">
+                    </div>
+            
+                    <input type="file" name="uploadfile" id="img" (change)="onChange($event)" style="display:none;"/>
+                    <label for="img" style="color:#fff; font-size: 20px; border-radius: 20px">Select photo</label>        
+              </ion-col>
+              <ion-col col-25></ion-col>
+            </ion-row>
+          </ion-grid>
+
+        <hr> 
+        <ion-list inset>
+              <ion-item (click)="updateName()">   
+                 <ion-grid> 
+                    <ion-row>
+                         <ion-col col-6><b>Name:</b></ion-col>
+                         <ion-col col-6 *ngIf="userProfile?.firstname || userProfile?.lastname">
+                              {{userProfile?.firstname}} {{userProfile?.lastname}}
+                         </ion-col>
+                         <ion-col col-6 class ="placeholder-profile" *ngIf="!userProfile?.firstname">
+                           <span>Tap here to edit. </span>
+                          </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+
+                <ion-item (click)="updateEmail()">
+                  <ion-grid>
+                     <ion-row>
+                        <ion-col col-6><b>Email:</b></ion-col>
+                        <ion-col col-6 *ngIf="userProfile?.email">
+                          {{userProfile?.email}}
+                        </ion-col>
+                        <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.email">
+                        <span>Tap here to edit. </span>
+                       </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-item>
+
+              <ion-item (click)="updateAddress()">
+                  <ion-grid>
+                     <ion-row>
+                        <ion-col col-6><b>Address:</b></ion-col>
+                        <ion-col col-6 *ngIf="userProfile?.address">
+                          {{userProfile?.address}}
+                        </ion-col>
+                        <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.address">
+                        <span>Tap here to edit. </span>
+                       </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-item>
+
+              <ion-item (click)="updatePhone()">
+                  <ion-grid>
+                     <ion-row>
+                        <ion-col col-6><b>Phone:</b></ion-col>
+                        <ion-col col-6 *ngIf="userProfile?.phone">
+                          {{userProfile?.phone}}
+                        </ion-col>
+                        <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.phone">
+                        <span>Tap here to edit. </span>
+                       </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-item>
+
+             <ion-item (click)="updatePassword()">
+                <ion-grid>
+                  <ion-row>
+                     <ion-col col-6><b>Password:</b></ion-col>
+                     <ion-col col-6 class="placeholder-profile">
+                     <span>Tap here to edit. </span>
+                     </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
+        </ion-list>
+
+        <div text-center style="padding-top: 10px">
+            <button  ion-button  round style="background-color: #660066; color: #fff" (click)="saveProfile()">Save</button>
+        </div>
+    </div>
+</ion-content>
+
+
+
+
+
+
+
+

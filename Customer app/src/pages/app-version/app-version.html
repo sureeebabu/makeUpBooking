@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>{{'app-version' | translate}}</ion-title>
+    <ion-buttons end>
+        <button ion-button clear icon-only (click)="close()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header> 
+<!-- app version from json file in assets-->
+<ion-content padding *ngFor="let item of appinfo">
+<p text-center>{{item.name}}</p>
+<p text-center>{{item.version}}</p>  
+</ion-content>

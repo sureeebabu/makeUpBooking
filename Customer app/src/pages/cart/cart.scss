@@ -1,0 +1,158 @@
+page-cart {
+
+  .placeholder-text{
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    }
+    .waiting{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    }     
+    .currencies {
+      .currency {
+      background-color: #eee;
+      border-radius: 10px;
+      margin-bottom: 10px;
+        .logo{
+        border-radius: 50%;
+        width: 80px;
+        margin:0 auto;
+        display: block;
+        }
+    .name,.dollars{
+      font-weight: bold;
+      color: black;
+      font-size: 15px;
+      margin-top: 15px;
+      }
+      .rank{
+        color: #999;
+        font-size: 18px;
+      }
+      .evolution{
+        font-weight: 18px;
+        color: green;
+        font-weight: 700;
+        &.negative {
+          color: red;
+        }
+      }
+    }
+ }            
+
+ #home #centent{
+  margin:10px 5px;
+  background-color:#fff;
+  box-shadow:0 1px 1px #dcdcdc;
+}
+#home .centent-top{
+  height:32px;
+  overflow:hidden;
+}
+#home .centent-top span{
+  display:block;
+  width:16px;
+  height:20px;
+  margin:4px 4px 0 4px;
+  background-image:url('../assets/img/seckill-icon.png');
+  background-size:16px 20px;
+  float:left;
+}
+#home .centent-top h2{
+  float:left;
+  font-size:15px;
+  color:#f00;
+  line-height:30px;
+  margin-right:10px;
+  margin-top: 0px;
+}
+#home .centent-time span{
+  background-image:none;
+  margin:5px 1px;
+  width:5px;
+  color:#5d5d5d;
+  font-size:14px;
+  font-weight:700;
+  text-align:center;
+}
+#home .centent-top .time-text{
+  color: #f8067f;
+  font-size:20px;
+  width:15px;
+  font-weight:300;
+  background-color:#fff;
+}
+#home .centent-more{
+  float: right;
+  line-height:30px;
+  //text-align: justify;
+  margin-right: 15px;
+  font-weight:300;
+  font-size:17px;
+}
+#home .centent-bottom{
+  padding-top:7px;
+  overflow:hidden;
+}
+#home .centent-bottom li{
+  width:33.3%;
+  float:left;
+}
+
+#home .centent-bottom li img{
+  display:block;
+  border-right:1px solid #e6e6e6;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  width: 100%;
+}
+#home .centent-bottom li span{
+  display:block;
+  text-align:center;
+  font-size:14px;
+}
+
+
+.qrcode{
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  .cart-item h2{
+    color: #FF6500;
+    font-weight: bold;
+  }
+  .cart-item p {
+    color: #222;
+  }
+  .qty{
+    padding: 5px 8px;
+    margin: 0px 4px;
+    font-size:20px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 0 1px -2px rgba(0,0,0,.2);
+  }	
+  
+  .empty-cart{
+    color: #b3b3b3;
+    font-size: 16px;
+    text-align: center;
+  
+  }
+  .cart-trash{
+    font-size: 30px;
+  }
+  
+  [padding] h5:first-child{
+    margin-top: 16.7rem;
+  }
+
+  }
+  
+  
+
+

@@ -1,0 +1,50 @@
+<ion-content padding class="transparent-header">
+	<ion-header>
+		<ion-navbar>
+		</ion-navbar>
+	</ion-header>
+		<ion-thumbnail>
+			<img src="./assets/imgs/logo2.jpg" />
+		</ion-thumbnail>
+
+		<div *ngIf="!values.isLoggedIn" class="account-register">
+      <form #f="ngForm">
+		<div padding>
+				<ion-item>
+						<ion-input type="text" [(ngModel)]="form.firstName" name="firstname" 
+						placeholder="{{'First Name' | translate}}"></ion-input>
+				</ion-item>
+				<ion-item>
+						<ion-input type="text" [(ngModel)]="form.lastName" name="lastname" 
+						placeholder="{{'Last Name' | translate}}"></ion-input>
+				</ion-item>	
+				<ion-item>
+						<ion-input type="email" [(ngModel)]="form.email" name="Email" 
+						placeholder="{{'Email' | translate}}"></ion-input>
+				</ion-item>
+				<ion-item>
+						<ion-input type="password" [(ngModel)]="form.password" name="password" 
+						placeholder="{{'Password' | translate}}"></ion-input>
+				</ion-item>
+				<div  class="margin">
+					<h4 style="color:#fff" text-center>{{errorRegisterMessage}}</h4>
+				</div>
+		  <button ion-button block outline  color="light" class="login-button" type ="submit" [disabled]="disableSubmit" (click)="register()">{{'Register' | translate}}</button>
+		</div>
+	
+		</form>
+		</div>
+</ion-content>
+	
+<ion-footer>
+		<ion-toolbar class="footer">
+		  <div (click)="gologin()">
+			<span>{{'Already have an account?' | translate}} <strong> {{'LogIn' | translate}}</strong>.</span>
+		  </div>
+		</ion-toolbar>
+</ion-footer>
+	
+	
+
+
+		

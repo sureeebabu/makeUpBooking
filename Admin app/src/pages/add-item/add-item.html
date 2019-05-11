@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Add Product</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <form #f="ngForm">
+  <ion-card>
+      <ion-card-content>
+      <ion-list no-lines>
+        <!-- Product image-->
+        <div class="spacer" style="height:5px;"></div>
+        <ion-item  style="padding-left:125px">
+              <ion-thumbnail>
+                 <img src="{{downloadURL || 'assets/imgs/image.jpg'}}">
+              </ion-thumbnail>
+              <input type="file" name="uploadfile" id="img" (change)="onChange($event)" style="display:none;"/>
+              <label for="img" style="color:#000; font-size: 20px;">Choose Image</label> 
+        </ion-item>  
+        
+        <!-- Product Name-->
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>
+        <ion-icon name="create" color="head" item-start></ion-icon>
+        <ion-input required type="text" [(ngModel)]="form.name" name="name" placeholder="Product Name"></ion-input>
+        </ion-item>
+        <!-- Product Regular Price-->
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+        <ion-icon name="pricetag" color="head" item-start></ion-icon>
+        <ion-input required type="number" [(ngModel)]="form.regular_price" name="regular_price" placeholder="Product Regular Price"></ion-input>
+        </ion-item>
+        <!-- Product Sale Price -->
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+        <ion-icon name="pricetag" color="head" item-start></ion-icon>
+        <ion-input required type="number" [(ngModel)]="form.sale_price" name="sale_price" placeholder="Product Sale Price"></ion-input>
+        </ion-item>
+        <!-- Product Category Select-->
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+        <ion-icon name="list" color="head" item-start></ion-icon>
+        <ion-select [(ngModel)]="form.category"  name="category" placeholder="Category">
+            <ion-option *ngFor="let item of categoryName" value="{{item.id}}">{{item.name}}</ion-option>
+         </ion-select>
+        </ion-item>
+        <!-- Product Description -->
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+        <ion-icon name="create" color="head" item-start></ion-icon>
+        <ion-textarea rows="4" required type="text" [(ngModel)]="form.description" name="description" placeholder="Description"></ion-textarea>
+        </ion-item>
+
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item  style=" background-color:#f2f2f2;margin-bottom:4px" no-lines>
+            <ion-label color="head" style="font-size: 15px;">Available</ion-label>
+            <ion-toggle checked="true" [(ngModel)]="form.available" name="available"></ion-toggle>
+         </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  </form>
+  
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="addProduct()">Save</button>
+
+  </ion-content>
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  

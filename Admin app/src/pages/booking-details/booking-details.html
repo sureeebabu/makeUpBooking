@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>Booking-details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-card margin-top class="whiteBackground">
+    <!-- Booking details-->
+          <ion-item>
+         <h2 text-center><b>Booking Details</b></h2>
+        </ion-item>
+         <ion-item>
+           <h2><span><b>Service Type:</b></span> <span style="padding-left:10px;">{{getService}}</span></h2>
+            <h2><span><b>Booking ID:</b></span> <span style="padding-left:10px;">#{{getBookingNumber}}</span></h2>
+           <h2><span><b>Date Booked:</b></span> <span style="padding-left:10px;">{{getDateTime}}</span></h2> 
+           <h2><span><b>Service Date:</b></span><span style="padding-left:10px;">{{getDate}}</span></h2> 
+           <h2><span><b>Service Time:</b></span><span style="padding-left:10px;">{{getTime}}</span></h2>
+         </ion-item>
+        <!-- Customer details -->
+           <ion-item>
+           <h2 text-center><b>Customer Details</b></h2>
+           </ion-item>
+         <ion-item>
+           <h2><span><b>Customer Name: </b></span> <span style="padding-left:10px;">{{getName}}</span></h2> 
+           <h2><span><b>Customer phone:</b></span><span style="padding-left:10px;">{{getPhone}}</span></h2> 
+           <h2><span><b>Customer Email:</b></span><span style="padding-left:10px;">{{getEmail}}</span></h2>
+         </ion-item>
+  
+        <!-- Booking Status-->
+       <ion-item>
+          <div *ngIf="getStatus == 'completed'">Status: <ion-badge color="secondary">Completed</ion-badge></div>
+          <div *ngIf="getStatus == 'processing'">Status: <ion-badge color="process">Processing</ion-badge></div>
+          <div *ngIf="getStatus == 'pending'">Status: <ion-badge color="pending">Pending</ion-badge></div>
+          <div *ngIf="getStatus == 'cancelled'">Status: <ion-badge color="danger">Cancelled</ion-badge></div>
+      </ion-item>
+
+</ion-card> 
+
+</ion-content>
+

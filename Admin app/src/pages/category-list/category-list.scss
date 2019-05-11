@@ -1,0 +1,85 @@
+page-category-list {
+
+    .margin {
+        margin: 5px;
+    }
+    .add {
+        .button {
+            height: 2.2em;
+            font-size: 13px;
+            border-radius: 15px;
+            margin: 0;
+        }
+        .item.item-block .item-inner {
+            border-bottom: 0.55px solid #f2f2f2;
+        }
+    }
+    ion-label {
+        margin: 5px 0px 0 12px;
+    }
+    h2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+    }
+    ion-col {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0;
+    }
+    .cat-list {
+        .button {
+            height: 2.2em;
+            font-size: 12px;
+            border-radius: 0;
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .item {
+        padding: 0;
+        margin-bottom: 3px;
+    }
+    .item ion-thumbnail {
+        min-width: 5.6rem;
+        min-height: 5.6rem;
+        max-width: 10rem;
+        max-height: 10rem;
+        width: 8rem;
+        height: 8rem;
+        margin: 0;
+        padding: 0;
+    }
+    .item ion-thumbnail img {
+        min-width: 5.6rem;
+        min-height: 5.6rem;
+        max-width: 10rem;
+        max-height: 10rem;
+        width: 8rem;
+        height: 8rem;
+        margin: 0;
+        padding: 0;
+    }
+    .item.item-block .item-inner {
+        border-bottom: 0.55px solid #f2f2f2;
+    }
+    .list-ios > .item-block:last-child,
+    .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 0.55px solid #f2f2f2;
+    }
+    .list-ios > .item-block:first-child {
+        border-top: none;
+    }
+    .list-md > .item-block:first-child {
+        border-top: none;
+    }
+    .list-md > .item-block:last-child {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .add {
+        padding: 0;
+        background-color: transparent;
+        color: #fff;
+    }
+
+}

@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar color="head">
+       <ion-title text-center>Order Details</ion-title>
+    </ion-navbar>
+ </ion-header>
+ <ion-content class="order-info">
+    <ion-spinner *ngIf="!orderDetails" name="crescent" style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px" ></ion-spinner>
+ 
+ <div *ngIf="orderDetails">
+   <!-- Order details-->
+ <ion-list>
+   <ion-item *ngFor="let item of orderDetails.items">
+     <ion-thumbnail item-start>
+       <img src="{{item.image}}">
+     </ion-thumbnail>
+     <h2>{{item.name}}</h2>
+     <p>Price:  {{item.price | currency:values.currency:true:'1.2-2'}}</p>
+     <p>Quantity:  {{item.quantity}}</p>
+     <h2>SubTotal:  {{1*item.price*item.quantity | currency:values.currency:true:'1.2-2'}}</h2>
+   </ion-item>
+ </ion-list>
+ 
+ <ion-list>
+ <ion-item style="background-color: #660066;">
+     <h1 style="margin:0px; color:#fff;">Order Details</h1>
+ </ion-item>
+ <div padding>
+     <h2><span style="font-weight: bold;">Order ID:</span> {{orderDetails.orderNumber}}</h2>
+     <h2><span style="font-weight: bold;">Payment Type:</span> {{orderDetails.payments.PaymentType}}</h2>
+     <div *ngIf="orderDetails.status == 'completed'">Status: <ion-badge color="secondary">Completed</ion-badge></div>
+     <div *ngIf="orderDetails.status == 'processing'">Status: <ion-badge color="process">Processing</ion-badge></div>
+     <div *ngIf="orderDetails.status == 'pending'">Status:  <ion-badge color="pending">Pending</ion-badge></div>
+     <div *ngIf="orderDetails.status == 'cancelled'">Status:  <ion-badge color="danger">Cancelled</ion-badge></div>
+ </div>
+ <!-- Customer details-->
+      <ion-item style="background-color: #660066;">
+             <h1 style="margin:0px; color:#fff;">Customer Details</h1>
+          </ion-item>
+       <div padding>
+       <h2><span style="font-weight: bold;">Name: </span><span style="padding-left:25px;">{{orderDetails.customerDetails.displayName}}</span></h2>
+       <h2><span style="font-weight: bold;">Email: </span><span style="padding-left:25px;">{{orderDetails.customerDetails.email}}</span></h2>
+       <h2><span style="font-weight: bold;">Phone Number: </span><span style="padding-left:25px;">{{orderDetails.customerDetails.phoneNumber}}</span></h2>
+       <h2><span style="font-weight: bold;">Address: </span><span style="padding-left:25px;" text-wrap>{{orderDetails.customerDetails.address}}</span></h2>
+       <h2><span style="font-weight: bold;">Date: </span><span style="padding-left:25px;">{{orderDetails.timeStamp | date}}</span></h2>
+       </div>
+       </ion-list>
+       <br>
+    </div>
+ </ion-content>                  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         

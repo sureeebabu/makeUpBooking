@@ -1,0 +1,40 @@
+   <ion-header>
+      <ion-navbar color="head">
+         <ion-title text-center>{{'Update Profile' | translate}} </ion-title>
+      </ion-navbar>
+   </ion-header>
+<!-- Update user profile -->
+   <ion-content class="adrress">
+         <div class="margin">
+         <ion-list>
+            <ion-item>
+               <ion-label floating>{{'First Name' | translate}} </ion-label>
+               <ion-input required type="text" [(ngModel)]="customer.displayName" name="displayName"></ion-input>
+            </ion-item>
+            <ion-item>
+               <h3>{{'Email' | translate}}: {{customer.email}}</h3>
+            </ion-item>
+            <ion-item>
+               <ion-label floating>{{'Phone no' | translate}} </ion-label>
+               <ion-input type="number" [(ngModel)]="customer.phoneNumber" name="phone" ></ion-input>
+            </ion-item>
+            <ion-item>
+               <ion-label floating>{{'Address' | translate}} </ion-label>
+               <ion-input type="text" [(ngModel)]="customer.address" name="address" ></ion-input>
+            </ion-item>
+         </ion-list>
+          <div class="error-message">
+              <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+          </div>
+         <button ion-button no-margin item-right full color="head" [disabled]="disableSubmit" (click)="update()">{{'Save' | translate}} </button>
+      </div>
+   </ion-content>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+
+   <ion-header>
+      <ion-navbar color="head">
+         <ion-title text-center *ngIf="productDetails">{{productDetails.name}}</ion-title>
+         <ion-buttons end>
+            <!-- Badge for cart count-->
+            <button ion-button id="notification-button" (click)="pushToCart($event)" >
+                <ion-icon name="cart" class="cart-icon">
+                <ion-badge id="notifications-badge" color="danger">{{values.qty}}</ion-badge>
+                </ion-icon>
+              </button>
+        </ion-buttons>
+      </ion-navbar>
+   </ion-header>
+   <!-- Product details here-->
+   <ion-content class="product">
+      <ion-spinner *ngIf="!productDetails" name="crescent" style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px" ></ion-spinner>
+   
+         <div *ngIf="productDetails" style="margin-bottom:40px">
+         <img src="{{productDetails.downloadURL}}">
+         <ion-label style="margin-bottom:0px; font-size: 33px" color="shadow" text-center>
+            <strong text-capitalize class="product-name">{{productDetails.name}}</strong>
+         </ion-label>
+          <ion-row class="price-padding">
+            <ion-col text-center>
+                <button ion-button round item-end color="head" style="font-size: 20px" *ngIf="productDetails.sale_price">${{productDetails.sale_price}}</button>
+                <button ion-button round item-end color="danger" style="font-size: 20px" *ngIf="!productDetails.sale_price"><del>${{productDetails.regular_price}}</del></button>
+                <button ion-button round item-end color="danger" style="font-size: 20px" *ngIf="productDetails.sale_price"><del>${{productDetails.regular_price}}</del></button>
+                <button ion-button round item-end color="fb-color" style="font-size: 20px; text-transform: none;" (click)="shareSheetShare()">Share</button>
+            </ion-col>
+         </ion-row>
+  
+         <ion-item style=" background-color:#f2f2f2;"  no-lines>
+            <strong style="color:#6f0479; font-size: 15px;" class="divider-name">{{'Description' | translate}} </strong> 
+         </ion-item>
+         <ion-item text-wrap  no-lines>
+            <div [innerHTML]="productDetails.description"></div>
+         </ion-item>
+      </div>
+      <br>
+   
+   </ion-content>
+  <!-- Add to cart -->
+   <ion-footer *ngIf="productDetails">
+      <ion-grid no-padding>
+         <button ion-button  large color="head" [disabled]='!productDetails.available'  (click)="addToCart(productDetails.id, productDetails.name, productDetails.sale_price, productDetails.downloadURL )">
+         {{'Add To Cart' | translate}}
+         </button>
+      </ion-grid>
+   </ion-footer>
+
+   
+  

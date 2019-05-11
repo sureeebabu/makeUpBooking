@@ -1,0 +1,80 @@
+page-booking,
+.welcome {
+  .logo {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    ion-icon {
+      font-size: 7rem;
+      font-weight: bold;
+    }
+  }
+
+  
+
+ 
+ .note{
+  border: 2px solid gray;
+  padding-left: 15px;
+  padding-right: 15px;
+ }
+  
+  ion-slides {
+    height: 50%;
+
+    ion-icon {
+      font-size: 8rem;
+    }
+
+    
+  }
+
+  .spacer {
+    border: 2px solid gray;
+    border-radius: 30px;
+  }
+
+  .cat2{
+    border:  3px solid  #660066;   //#ff4d94;
+    border-radius: 30px;
+}
+
+.date{
+  background-color: rgb(219, 216, 216);
+  border-radius: 8px;
+}
+
+.time{
+  background-color: rgb(219, 216, 216);
+  border-radius: 8px;
+}
+
+.service{
+  background-color: rgb(219, 216, 216);
+  border-radius: 8px;
+}
+ .note{
+  background-color: rgb(219, 216, 216);
+  border-radius: 5px;
+  padding-top: 5px;
+ }
+
+ .icon {
+  padding-right: 10px;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.input-cover {
+position: static;
+}
+
+}
+
+
+

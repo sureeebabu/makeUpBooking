@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>
+     {{'Message Us' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- Message form -->
+<ion-content padding>
+  <form #f="ngForm">
+  <div>
+    <p>{{'Your Email' | translate}}:</p>
+    <ion-input required type="text" [(ngModel)]="form.email" name="email"></ion-input>
+  </div>
+  <div>
+    <p>{{'Title' | translate}}:</p>
+    <ion-input required type="text" [(ngModel)]="form.title" name="title"></ion-input>
+  </div>
+  <div>
+    <p>{{'Messages' | translate}}:</p>
+    <ion-textarea rows="5" id="textarea" required type="text" [(ngModel)]="form.message" name="message">
+    </ion-textarea>
+  </div>
+  </form>
+
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+    
+  <div text-center style="padding-top: 60px">
+          <button  ion-button  round style="background-color:  #660066; color: #fff" [disabled]="disableSubmit" (click)="sendmessage()">{{'Send Message' | translate}}</button>
+  </div>
+</ion-content>

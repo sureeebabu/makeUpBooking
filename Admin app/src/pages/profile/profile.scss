@@ -1,0 +1,59 @@
+page-profile {
+    .header{
+        &::after{
+            background: transparent;
+        }
+    }
+
+    .scroll-content{
+        overflow-y: hidden;
+
+        .profileback {
+            background-color: color($colors, head);
+
+            .circle{
+                border-radius: 50%;
+                padding: 10px;
+                background-color: white;
+                border: 2px solid #999;
+            }
+
+            button{
+                background-color: #999 !important;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                border: 1px solid #ccc;
+
+                .icon{
+
+                    font-size: large;
+                }
+            }
+
+            h4{
+                color: white;
+            }
+        }
+
+        .item{
+            padding-left: 0px;
+        }
+    }
+		
+		}
+
+
+        ion-alert {
+            &.alert-danger {
+              .alert-head {
+                background: map-get($colors, head);
+                color: #fff;
+                margin-bottom: 10px;
+              }
+              
+            }
+        }
+

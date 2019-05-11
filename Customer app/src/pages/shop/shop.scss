@@ -1,0 +1,104 @@
+page-shop {
+  .banner {
+      margin: 0 !important;
+      width: 100% !important;
+      //height: 50% !important;
+  }
+
+  .expanded-image img {
+      min-height: 150px;
+      background-color: #eeeeee;
+    }
+
+    .cat{
+        background-color: #ffff91; // #ffff91;          //#2e2eb8; //#ff4d94; //#660066;          //#ff4d94,
+    }
+    
+    .cat2{
+        border:  3px solid   #4d2600;      //#2e2eb8;    //#ff4d94; //#660066;         //#ff4d94;
+        border-radius: 20px;
+    }
+    .catcat{
+        //color: white;
+        font-size: 18px;
+    }
+    .cont{
+        background-color: #f0f5f5;
+    }
+
+    div.swiper-pagination {
+      bottom:20px;
+      top:inherit;
+   }
+
+   .swiper-pagination-bullet-active{
+      background: color($colors, pinklo) !important;
+      opacity: 1;
+
+    }
+
+    .search-item h4{
+  color: #FF6500;
+  font-weight: bold;
+  }
+
+  ion-modal,
+  .show-page {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, .5) !important;
+    padding: 50px !important;
+  }
+  .toolbar-background {
+    color: red !important;
+  }
+  ion-modal.modal-wrapper {
+    transform: translateY(30%) !important;
+  }
+  ion-page.modal {
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .modal-backdrop-bg {
+    background-color: #000;
+    opacity: 0;
+  }
+  .active .modal-backdrop-bg {
+    opacity: 0.5;
+  }
+
+
+ion-modal.inset-modal {
+  // transparent black background overlay
+  background-color: rgba(0, 0, 0, .5) !important;
+  transition: opacity .25s ease-in-out;
+  padding: 20vh 10vw;
+
+}
+
+.cart-icon{
+font-size: 25px;
+color: #4d2600;
+}
+
+#notification-button {            
+position: relative;
+width: 42px;
+top:1px;
+right: 1px;
+overflow: visible!important;
+}
+
+
+#notifications-badge {
+background-color: red;
+position: absolute;
+top: -3px;
+right: -3px;
+border-radius: 100%;
+}
+
+
+
+}
+
+

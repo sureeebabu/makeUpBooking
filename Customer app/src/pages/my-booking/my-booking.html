@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="head">
+       <ion-title text-center>{{'My Bookings' | translate}}</ion-title>
+       <ion-buttons right>
+        <button (click)="closeModal()" ion-button >    
+            <ion-icon name="close" class="close-modal-icon"></ion-icon>
+        </button>
+    </ion-buttons>
+    </ion-navbar>
+ </ion-header>
+ <ion-content>
+     <!-- show spinner if booking list is not show up-->
+    <ion-spinner *ngIf="!myBookList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner>
+    <div *ngIf="myBookList">
+       <ion-list class="list-padding">  
+              <ion-card *ngFor="let item of myBookList?.slice().reverse()">
+                <ion-item class="cart-item">
+                  <h4 item-right *ngIf="item.status == 'completed'" class="cancel" (click)="removeBook(item.id)">{{'Delete' | translate}}</h4>
+                  <h4 item-right *ngIf="item.status == 'processing'"  (click)="getBookingDetails(item.id)">{{'View' | translate}}</h4>
+                  <h4 item-right *ngIf="item.status == 'pending'"  (click)="getBookingDetails(item.id)">{{'View' | translate}}</h4>
+                  <h4 item-right *ngIf="item.status == 'pending'"  (click)="deleteBook(item.id)">{{'Delete' | translate}}</h4>
+                  <h4 item-right *ngIf="item.status == 'cancelled'" class="cancel" (click)="deleteBook(item.id)">{{'Delete' | translate}}</h4>
+                  <h4 item-right *ngIf="item.status == 'processing'" class="cancel" (click)="deleteBook(item.id)">{{'Delete' | translate}}</h4>
+                  <h4 item-right *ngIf="item.status == 'completed'" class="cancel" (click)="getBookingDetails(item.id)">{{'View' | translate}}</h4>
+                  <h4 class="itemname" text-wrap><span><b>{{'Service Type' | translate}}:</b></span> {{item.service}}</h4>
+                  <h4><span><b>{{'Booking ID' | translate}}:</b></span> #{{item.bookingNumber}}</h4>
+                  <h4><span><b>{{'Date Booked' | translate}}:</b></span> {{item.dateTime}}</h4> 
+                  <div *ngIf="item.status == 'completed'">{{'Status' | translate}}: <ion-badge color="secondary">{{'Completed' | translate}}</ion-badge></div>
+                  <div *ngIf="item.status == 'processing'">{{'Status' | translate}}: <ion-badge color="process">{{'Processing' | translate}}</ion-badge></div>
+                  <div *ngIf="item.status == 'pending'">{{'Status' | translate}}: <ion-badge color="pending">{{'Pending' | translate}}</ion-badge></div>
+                  <div *ngIf="item.status == 'cancelled'">{{'Status' | translate}}: <ion-badge color="danger">{{'Cancelled' | translate}}</ion-badge></div>
+                 </ion-item>
+              </ion-card> 
+       </ion-list>
+    </div>
+    <!-- show this if booking list is empty-->
+    <div *ngIf = "(myBookList)?.length == '0'">
+        <ion-item no-lines>
+         <img src="./assets/imgs/emptybooking.png" style="height: 250px; width: 300px; padding-left:50px;"/>
+        </ion-item> 
+        <div text-center>
+        <h3 style="color:grey;">{{'You have not booked appointment' | translate}}</h3>
+        </div>
+    </div> 
+ </ion-content>

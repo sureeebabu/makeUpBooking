@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Orders</ion-title>
+      </ion-toolbar>
+</ion-header>
+<!-- Orders list-->
+<ion-content no-padding>
+<ion-spinner *ngIf="!orderList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px" ></ion-spinner>
+<div *ngIf="orderList">
+<ion-card margin-top class="whiteBackground" *ngFor="let item of orderList">
+  <ion-item>
+      <h2><span><b>User Name:</b></span> <span style="padding-left:10px;">{{item.customerDetails.displayName}}</span></h2>
+      <h2><span><b>Order ID:</b></span> <span style="padding-left:10px;">#{{item.orderNumber}}</span></h2>
+      <h2><span><b>Payment Type</b></span> <span style="padding-left:10px;">{{item.payments.PaymentType}}</span></h2> 
+      <h2><span><b>Date:</b></span> <span style="padding-left:10px;">{{item.dateTime}}</span></h2> 
+      <div *ngIf="item.status == 'completed'">Status: <ion-badge color="secondary">Completed</ion-badge></div>
+      <div *ngIf="item.status == 'processing'">Status: <ion-badge color="process">Processing</ion-badge></div>
+      <div *ngIf="item.status == 'pending'">Status: <ion-badge color="pending">Pending</ion-badge></div>
+      <div *ngIf="item.status == 'cancelled'">Status: <ion-badge color="danger">Cancelled</ion-badge></div>
+  </ion-item>   
+           
+   <ion-item>
+        <div item-right>
+          <button ion-button (click)="update(item)" color="head">Action</button>
+        </div>
+
+        <div item-right>
+          <button ion-button (click)="getOrderDetails(item.id)" color="secondary">Details</button>
+        </div>
+
+        <div item-right *ngIf="item.status == 'completed'">
+          <button ion-button color="danger" (click)="deleteOrder(item.id)"  color="danger">Delete</button>
+        </div>
+
+        <div item-right *ngIf="item.status == 'cancelled'">
+          <button ion-button color="danger" (click)="deleteOrder(item.id)" color="danger">Delete</button>
+         </div>
+   </ion-item>
+</ion-card>
+</div>
+</ion-content>
+
+
+
+
+

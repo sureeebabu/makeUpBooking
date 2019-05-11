@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+
+      <ion-title text-center>Dashboard</ion-title>
+      <ion-buttons end> 
+          <!-- Message count received form users-->
+        <button ion-button id="notification-button" (click)="showMessage()">
+            <ion-icon name="mail" class="mailicon"></ion-icon>
+            <ion-badge id="notifications-badge" color="danger">{{(messageList)?.length}}</ion-badge>
+        </button>
+      </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid>        
+    <ion-row wrap>   
+      <ion-col col-6>
+       <ion-card class="movie-card1">
+         <div class="ico1">
+         <ion-icon name="cart"></ion-icon>
+         </div>
+         <!-- Booking count from users-->
+         <h3 class="mainpoint">Bookings</h3>
+         <h1 class="mainnumber">{{(bookingList)?.length}}</h1>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-6>
+          <ion-card class="movie-card2">
+              <div class="ico2">
+                  <ion-icon name="people"></ion-icon>
+                   </div>
+                   <!-- Number of users count-->
+                  <h3 class="mainpoint">Users</h3>
+                  <h1 class="mainnumber">{{(userList)?.length}}</h1>
+          </ion-card>
+         </ion-col>  
+
+         <ion-col col-6>
+            <ion-card class="movie-card3">
+                <div class="ico3">
+                    <ion-icon name="list-box"></ion-icon>
+                    </div>
+                    <!-- Product count-->
+                    <h3 class="mainpoint">Products</h3>
+                    <h1 class="mainnumber">{{(productList)?.length}}</h1>
+            </ion-card>
+           </ion-col>
+
+           <ion-col col-6>
+              <ion-card class="movie-card4">
+                  <div class="ico4">
+                      <ion-icon name="list"></ion-icon>
+                      </div>
+                      <!-- Number of orders form user-->
+                      <h3 class="mainpoint">Orders</h3>
+                      <h1 class="mainnumber">{{(orderList)?.length}}</h1>
+              </ion-card>
+             </ion-col>
+
+             <ion-col col-6>
+                <ion-card class="movie-card5">
+                    <div class="ico5">
+                        <ion-icon name="logo-rss"></ion-icon>
+                        </div>
+                        <h3 class="mainpoint">Posts</h3>
+                        <h1 class="mainnumber">{{(blogList)?.length}}</h1>
+                </ion-card>
+               </ion-col>
+
+               <ion-col col-6>
+                  <ion-card class="movie-card6">
+                      <div class="ico6">
+                          <ion-icon name="build"></ion-icon>
+                          </div>
+                          <!-- Number of services available for users-->
+                          <h3 class="mainpoint">Services</h3>
+                          <h1 class="mainnumber">{{(serviceList)?.length}}</h1>
+                  </ion-card>
+                </ion-col>     
+    </ion-row>
+</ion-grid>
+
+  <h2 text-center><b>Chart</b></h2>
+  <!-- Statistics showing the number of Bookings per month-->
+      <ion-card [hidden]="!chartData">
+        <ion-card-header>
+          Bookings Chart
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #valueBarsCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>Booking Comment</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Comment on booking from Admin-->
+  <div *ngIf="booking" style="margin:15px 5px 5px 5px;">
+    <ion-list>
+       <ion-item style="padding-top:10px" class="option">
+          <ion-input [(ngModel)]="booking.comment" name="comment" placeholder="Booking comment"></ion-input>
+       </ion-item>
+    </ion-list>
+
+    <div class="error-message">
+         <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+      </div>
+
+    <div style="margin:5px;">
+       <button ion-button block color="head" [disabled]="disableSubmit" (click)="updateComment()">Send comment</button>
+    </div>
+
+    <br>
+ </div>       
+</ion-content>

@@ -1,0 +1,54 @@
+
+<ion-menu [content]="content" id="menu1" enabled="false">
+  
+  <ion-header class="card-background-page">
+    <div padding background-size id="elastic-header"   [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+      <ion-thumbnail>
+        <img src="./assets/imgs/logo2.jpg" />
+      </ion-thumbnail>
+      <h6 text-center parallax-title>DBS STUDIO</h6>
+    </div>
+  </ion-header>
+
+   <!--Menu List when the user have loggedin-->
+  <ion-content class="menu-content myBg">
+    <ion-list  class="menu-content myBg" no-lines>
+      <button menuClose ion-item *ngFor="let p of userPages" (click)="openPage(p)" class="menu-content myBg" 
+          [class.activePage] = "checkActive(p)">
+           <div class="pagelist">
+              <ion-icon name="{{p.icon}}" color="light"></ion-icon>
+              <label style="padding-left:20px; color: #fff">{{ p.title | translate}}</label>
+            </div>
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+  <!--Menu List when the user have loggedout-->
+ <ion-menu [content]="content" id="menu2" enabled="false">
+    <ion-header class="card-background-page">
+        <div padding background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + headerImage + ')'}">
+          <ion-thumbnail>
+            <img src="./assets/imgs/logo2.jpg" />
+          </ion-thumbnail>
+          <h2 text-center parallax-title>DBS STUDIO</h2>
+        </div>
+      </ion-header>
+
+  <ion-content class="menu-content myBg">
+      <ion-list  class="menu-content myBg" no-lines>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" class="menu-content myBg" 
+          [class.activePage] = "checkActive(p)">
+        <div class="pagelist">
+          <ion-icon name="{{p.icon}}" color="light"></ion-icon>
+            <label style="padding-left:20px; color: #fff">{{ p.title | translate}}</label>
+        </div>
+      </button>
+    </ion-list>
+  </ion-content>  
+  </ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>
+
+

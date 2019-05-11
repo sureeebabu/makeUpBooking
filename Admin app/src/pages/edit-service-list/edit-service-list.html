@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Edit Service</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <!-- Services list-->
+<div *ngIf="service">
+  <ion-card>
+      <ion-card-content>
+      <ion-list no-lines>
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>
+        <ion-icon name="create" color="head" item-start></ion-icon>
+        <ion-input required type="text" [(ngModel)]="service.name" name="name" placeholder="Service name"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="editservice()">Save</button>
+</div>
+  </ion-content>
+  
+
+  

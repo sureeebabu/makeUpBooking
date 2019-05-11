@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "738419473788",
+    "firebase_url": "https://ecommercapp.firebaseio.com",
+    "project_id": "ecommercapp",
+    "storage_bucket": "ecommercapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738419473788:android:473f2dfa715d0649",
+        "android_client_info": {
+          "package_name": "io.dbsmakeup.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738419473788-k1884dj1fgrjtk3d8hnk67nei5qr5bmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiFH9Um0H-Ry8ZYLNkF_RaNc0EncSqtao"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

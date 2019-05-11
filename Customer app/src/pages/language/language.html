@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>{{'SelectLanguage' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <!-- Use switcher provider to get different Language-->
+  <ion-list>
+      <ion-item (click)="switch('en')">
+      <img src="./assets/imgs/english.png" item-start /> 
+      <ion-label><b>{{'English' | translate}}</b></ion-label>
+      </ion-item>
+  
+      <ion-item (click)="switch('ar')">
+      <img src="./assets/imgs/arabic.png" item-start /> 
+      <ion-label><b>{{'Arabic' | translate}}</b></ion-label>
+      </ion-item>
+
+      <ion-item (click)="switch('zh')">
+      <img src="./assets/imgs/chinese.png" item-start /> 
+      <ion-label><b>{{'Chinese' | translate}}</b></ion-label>
+      </ion-item>
+
+      <ion-item  (click)="switch('es')">
+      <img src="./assets/imgs/spanish.png" item-start /> 
+      <ion-label><b>{{'Spanish' | translate}}</b></ion-label>
+      </ion-item>
+
+      <ion-item (click)="switch('de')">   
+      <img src="./assets/imgs/german.png" item-start /> 
+      <ion-label><b>{{'German' | translate}}</b></ion-label>
+      </ion-item>
+
+      <ion-item (click)="switch('hi')">
+      <img src="./assets/imgs/hindi.png" item-start /> 
+      <ion-label><b>{{'Hindi' | translate}}</b></ion-label>
+      </ion-item>
+    
+  </ion-list>
+</ion-content>

@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-navbar color="head">
+      <ion-buttons left>
+          <button ion-button menuToggle  color="light">
+             <ion-icon name="menu"></ion-icon>
+           </button>
+         </ion-buttons>
+    <ion-title text-center>{{'Portfolio' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="forms-examples-content">
+  <ion-segment class="forms-examples-segment" [(ngModel)]="section" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="services" (ionSelect)="onSegmentSelected($event)">
+        {{'Services' | translate}}
+    </ion-segment-button>  
+    <ion-segment-button value="videos" (ionSelect)="onSegmentSelected($event)">
+        {{'Videos' | translate}}
+    </ion-segment-button>
+    <ion-segment-button value="photos" (ionSelect)="onSegmentSelected($event)">
+        {{'Photos' | translate}}
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <div [ngSwitch]="section">
+      <div *ngSwitchCase="'services'" class="card-example-view">
+          <ion-list class="accordion-list">
+              <!-- First Level -->
+              <ion-list-header *ngFor="let item of information; let i = index" no-lines no-padding>
+                <!-- Toggle Button -->
+                <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
+                  <ion-icon item-left name="pricetag" *ngIf="!item.open" color="chocolate"></ion-icon>
+                  <ion-icon item-right name="apps" *ngIf="!item.open" color="chocolate"></ion-icon>
+                  <ion-icon item-right name="close" *ngIf="item.open"></ion-icon>
+                    {{ item.name }}
+                </button>
+           
+                <ion-list *ngIf="item.children && item.open" no-lines>   
+                  <!-- Second Level -->
+                  <ion-list-header *ngFor="let child of item.children; let j = index" no-padding>
+                    <!-- Toggle Button -->
+                    <button ion-item (click)="toggleItem(i, j)" *ngIf="child.children" class="child" detail-none>
+                      <ion-icon item-left name="add" *ngIf="!child.open"></ion-icon>
+                      <ion-icon item-left name="close" *ngIf="child.open"></ion-icon>
+                      {{ child.name }}
+                    </button>
+           
+                    <!-- Direct Add Button as Fallback -->
+                    <ion-item *ngIf="!child.children" ion-item detail-none class="child-item" text-wrap>
+                      <img src={{child.image}} item-start class="item-avatar"/>
+                      <h2>{{ child.name }}</h2>
+                      <p text-lowercase>{{ child.information }}</p>
+                      <button ion-button outline item-end color="chocolate"><b>{{ child.price }}</b></button>
+                    </ion-item>
+           
+                    <ion-list *ngIf="child.children && child.open">
+                      <!-- Third Level -->
+                      <ion-item *ngFor="let item of child.children; let k = index" detail-none class="child-item" text-wrap>
+                          <img src={{item.image}} item-start class="item-avatar"/>
+                        <h2>{{ item.name }}</h2>
+                        <p text-lowercase>{{ item.information }}</p>
+                        <!-- Direct Add Button -->
+                        <button ion-button outline item-end color="head"><b>{{ item.price }}</b></button>
+                      </ion-item>
+                    </ion-list>
+                  </ion-list-header>
+                </ion-list>
+              </ion-list-header>
+            </ion-list>
+      </div>
+
+      <div *ngSwitchCase="'videos'" class="post-example-view">
+        <ion-grid>
+            <ion-row>
+              <ion-slides #categorySlides autoplay="3000" loop spaceBetween="10" slidesPerView="3">
+                <ion-slide *ngFor="let category of categories">
+                  <button ion-button round (tap)="searchVideos(category?.id)" style="text-transform: none; font-size: 10px; font-weight: bold;" color="danger">
+                    {{ category?.snippet?.title }}
+                  </button>
+                </ion-slide>
+              </ion-slides>
+            </ion-row>
+          </ion-grid>
+        
+      <!--<div class="videos-wrapper">-->
+  
+        <ion-list class="videos-list">
+        <ion-spinner *ngIf="!videos" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner>
+          <ion-item *ngFor="let video of videos" class="youtube-video-cell"
+            (tap)="youtube.openVideo(video?.id?.videoId ? video?.id?.videoId : video?.id)">
+            <img [src]="video?.snippet?.thumbnails['default']?.url" item-start>
+            <h4 text-wrap><b>{{ video?.snippet?.title }}</b></h4>
+            <p>{{ video?.snippet?.description }}</p>
+          </ion-item>
+        </ion-list>
+    </div>
+
+
+
+    <div *ngSwitchCase="'photos'" class="event-example-view">
+      <!-- Theme Image Sub-Gallery for Thumb grid -->
+    <ion-grid>
+    <ion-spinner *ngIf="!galleryList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner>
+    <ion-row>
+        <ion-col no-padding col-4 col-sm-3 col-md-6 col-lg-4 col-xl-3 *ngFor="let item of galleryList">
+            <!--<ion-card background-size  [ngStyle]="{'background-image': 'url(' + item.downloadURL + ')'}">-->
+              <ion-card background-size>
+                <img src = "{{item.downloadURL }}" #thisImage (click)="presentImage(thisImage)">
+            </ion-card>
+        </ion-col>
+    </ion-row>
+   </ion-grid>
+
+    </div>
+
+   
+  </div> 
+  
+  <!-- error happend -->
+   <div *ngIf="noCon" text-center class="errorMsg">
+      <!-- <ion-card-content> -->
+      <div class="image"></div>
+      <h2>Oops.. Something went wrong.</h2>
+      <p>Please check your internet connection.</p>
+  </div>
+</ion-content>
+
+
+
+

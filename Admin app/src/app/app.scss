@@ -1,0 +1,74 @@
+// http://ionicframework.com/docs/theming/
+/*@font-face{
+  font-family: open-sans;
+  src: url('../assets/fonts/Open-sans.woff2') format('woff2');
+}
+
+*{
+  font-family: Open-sans;
+}*/
+
+/*@font-face{
+  font-family: BalooBhai;
+  src: url('../assets/fonts/BalooBhai.woff2') format('woff2');
+}
+
+*{
+  font-family: BalooBhai;
+}*/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+#menu-left {
+    button {
+      padding-left: 16px;
+    }
+    ion-content {
+      background-color: #660066;
+      opacity: 0.9;
+    
+    }
+    .menu-inner {
+      width: 30vh;
+    }
+    @media screen and (orientation: landscape) {
+      .menu-inner {
+        width: 20vh;
+      }
+    }
+    .active-menu-item {
+      position: absolute;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid #ffffff;
+    }
+    .label {
+      display: flex;
+      align-items: center;
+    }
+    .list-md[no-lines] .item-block,
+    .list-md[no-lines] ion-item-options,
+    .list-md[no-lines] .item .item-inner,
+    .list-ios[no-lines] .item-block,
+    .list-ios[no-lines] ion-item-options,
+    .list-ios[no-lines] .item .item-inner {
+      padding: .3rem 0;
+      background: transparent;
+      color: white;
+    }
+    ion-icon {
+      line-height: 1;
+    }
+  }

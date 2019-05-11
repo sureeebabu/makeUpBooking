@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>{{'Blog' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- Blog list-->
+<ion-content>
+    <ion-spinner *ngIf="!blogList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold"></ion-spinner>
+    <div *ngFor="let item of blogList">
+        <ion-card>
+          <!-- Blog image -->
+                <img src="{{item.downloadURL}}" (click)="blogDetailsPage(item)" />
+                <ion-card-content>
+                  <h5 class="card-title"><b>{{item.title}}</b></h5>
+                  <p>{{item.short_description}}</p>
+                </ion-card-content>
+                <ion-row no-padding>
+                  <ion-col>
+                    <button ion-button clear color="head" small icon-left style="text-transform: none;">
+                      <ion-icon name='clock'></ion-icon>
+                      {{item.dateTime}}
+                    </button>
+                  </ion-col>
+               <!-- Social sharing -->
+                  <ion-col text-right>
+                    <button ion-button clear small icon-left (click)="facebookShare()">
+                      <ion-icon name='logo-facebook' color="fb-color"></ion-icon>
+                    </button>
+                    <button ion-button clear small icon-left (click)="instagramShare()">
+                      <ion-icon name='logo-instagram' color="insta-color"></ion-icon>
+                    </button>
+                  </ion-col>
+                </ion-row>
+           </ion-card>
+    </div>
+</ion-content>

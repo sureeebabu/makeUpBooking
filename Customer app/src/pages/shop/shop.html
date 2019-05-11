@@ -1,0 +1,58 @@
+  <ion-header no-shadow>
+      <ion-navbar color="head">
+           <ion-buttons left>
+              <button ion-button menuToggle  color="light">
+                 <ion-icon name="menu" color="chocolate"></ion-icon>
+               </button>
+             </ion-buttons>  
+        <ion-title text-center>{{'Shop' | translate}}</ion-title>
+        <ion-buttons end>
+          <button ion-button icon-only (click)="toggleSearch()">
+            <ion-icon name="search"></ion-icon>
+          </button>
+          <!-- Badge for cart count-->
+          <button ion-button id="notification-button" (click)="pushToCart($event)" >
+            <ion-icon name="cart" class="cart-icon" color="chocolate">
+            <ion-badge id="notifications-badge" color="danger">{{values.qty}}</ion-badge>
+            </ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-navbar>  
+    </ion-header>  
+    
+    <!-- Banner Slider-->
+    <ion-content no-padding class="cont">
+      <ion-card class="banner"> 
+        <ion-slides loop="true" autoplay="3000" pager> 
+          <ion-slide *ngFor="let number of [1,2,3,4]">  
+            <img src="./assets/imgs/{{number}}.jpg" />
+          </ion-slide>
+        </ion-slides> 
+      </ion-card>    
+    
+      <ion-item class="cat">   
+          <h3 text-center class="catcat"><b>{{'Shop by Category' | translate}}</b></h3>
+      </ion-item>
+    <!-- Product categories-->
+    <div *ngIf="categoryList.length" class="shop">
+      <ion-grid>    
+      <ion-spinner *ngIf="!categoryList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner> 
+        <ion-row wrap>   
+          <ion-col col-4 *ngFor="let item of categoryList" >
+            <ion-item class="cat2" (click)="getProducts(item.id)">
+              <img src="{{item.downloadURL}}">
+            <h5 text-center text-wrap><b>{{item.name}}</b></h5>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+    </div>
+    </ion-content>
+    
+    
+    
+    
+    
+    
+    
+    

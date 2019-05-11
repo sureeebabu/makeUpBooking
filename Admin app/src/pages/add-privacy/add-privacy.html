@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Add Privacy</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <form #f="ngForm">
+  <ion-card>
+      <ion-card-content>
+      <ion-list no-lines>
+        <!-- Privacy here here -->
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+        <ion-textarea rows="6" required type="text" [(ngModel)]="form.privacy" name="privacy" placeholder="Privacy"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  </form>
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="addPrvcy()">Save</button>
+</ion-content>
+  
+
+  
+             

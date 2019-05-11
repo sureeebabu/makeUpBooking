@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div *ngIf="user" class="margin">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-25></ion-col>
+      <ion-col col-50>
+        <img src="{{user.photoURL || 'assets/imgs/pic.jpg'}}" class="circle">
+      </ion-col>
+      <ion-col col-25></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h4 text-center no-margin>{{ user.email }}</h4>
+        <br>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+  <div padding  *ngIf="user">
+    <!-- Edit user -->
+      <ion-list>
+          <ion-item>
+             <ion-label stacked>First Name</ion-label>
+             <ion-input required type="text" [(ngModel)]="user.displayName" name="firstname"  placeholder="First Name"></ion-input>
+          </ion-item>
+
+           <ion-item>
+              <ion-label stacked>Phone</ion-label>
+              <ion-input required type="number" [(ngModel)]="user.phoneNumber" name="phone"  placeholder="Phone Number"></ion-input>
+           </ion-item>
+
+           <ion-item>
+              <ion-label stacked>Address</ion-label>
+              <ion-input required type="text" [(ngModel)]="user.address" name="address"  placeholder="Address"></ion-input>
+           </ion-item>
+
+      </ion-list>
+      <br>
+<!-- When there is an error -->
+      <div class="error-message">
+          <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+      </div>
+      <div style="padding-left:150px; padding-top:30px;">
+        <button  ion-button  round style="background-color:#660066; color:#fff" [disabled]="disableSubmit" (click)="saveUser()">Save</button>
+      </div>
+  </div>
+</div>
+
+</ion-content>
+
+

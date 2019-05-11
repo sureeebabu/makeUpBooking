@@ -1,0 +1,103 @@
+page-about-us {
+    #my-map {
+      width: 100%;
+      height: 200px;
+    }
+
+
+    ion-modal,
+    .show-page {
+      // transparent black background overlay
+      background-color: rgba(0, 0, 0, .5) !important;
+      padding: 50px !important;
+    }
+    .toolbar-background {
+      color: red !important;
+    }
+    ion-modal.modal-wrapper {
+      transform: translateY(30%) !important;
+    }
+    ion-page.modal {
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .modal-backdrop-bg {
+      background-color: #000;
+      opacity: 0;
+    }
+    .active .modal-backdrop-bg {
+      opacity: 0.5;
+    }
+  
+  
+  ion-modal.inset-modal {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, .5) !important;
+    transition: opacity .25s ease-in-out;
+    padding: 20vh 10vw;
+  }
+
+    ion-card.map-image {
+        position: relative;
+      }
+      ion-card.adv-map p {
+        font-size: 0.7em !important;
+      }
+      button[fab].fab-map {
+        top: calc(100% - 35px);
+        z-index: 50;
+      }
+      .item-bold {
+        font-weight: bold;
+      }
+      ion-content.cards-bg {
+        background-color: #f4f4f7;
+      }
+
+      .about {
+        position: relative;
+        text-align: center;
+      }
+    
+      button[ion-fab] {
+        overflow: visible;
+        position: relative;
+    
+        ion-label {
+            position: absolute;
+            top: -8px;
+            right: 40px;
+    
+            color: white;
+            background-color: rgba(0,0,0,0.7);
+            line-height: 24px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    }
+    
+    .fab{
+        contain: layout;
+    }
+    }
+
+    .card-background-page {
+
+      [background-size] {
+        @include darkening-blend-mode;
+        height: 250px;
+        position: relative;
+    
+        ion-thumbnail {
+          opacity: 1 !important;
+    
+          img {
+            border-radius: 50% !important;
+            height: 92px;
+            width: 92px;
+            margin: 20px auto 0;
+          }
+        }
+      }
+    
+    }

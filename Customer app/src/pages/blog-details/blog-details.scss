@@ -1,0 +1,157 @@
+page-blog-details {
+
+      // Animation
+  @include settingAnimationHeader;
+  // Settings Animation Text Color
+  @-webkit-keyframes color-change {
+    0% {
+      color: theme-colors('mainColors', 'primary');
+    }
+
+    100% {
+      color: theme-colors('textColors', 'accent') !important;
+    }
+  }
+
+  .active .back-button,
+  .active .toolbar-title {
+    color: theme-colors('textColors', 'accent') !important;
+    animation-name: color-change;
+    animation-duration: 400ms;
+  }
+
+  .back-button,
+  .toolbar-title {
+    color: theme-colors('textColors', 'secondaryBase') !important;
+  }
+
+  .scroll-content {
+    top: -56px;
+  }
+  // Parallax Big Images
+  [background-size] {
+    height: 250px;
+    position: relative;
+    //@include darkening-blend-mode;
+
+    [title-block] {
+      position: absolute;
+      bottom: 0;
+      padding: 16px 25px 16px 0;
+      // New Category
+      [new-category] {
+        color: theme-colors('textColors', 'secondaryBase');
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+      // Parallax Title
+      [parallax-title] {
+        color: theme-colors('textColors', 'secondaryBase');
+        font-size: font-size-text('h2') !important;
+        font-weight: 400;
+        line-height: 34px;
+      }
+    }
+  }
+  // Settings Avatar
+  ion-avatar {
+    min-width: 48px !important;
+    min-height: 48px !important;
+
+    img {
+      width: 48px !important;
+      height: 48px !important;
+    }
+  }
+  // Content Title
+  [parallax-subtitle] {
+    color: theme-colors('textColors', 'accentDark');
+    font-size: font-size-text('h4') !important;
+    line-height: 20px;
+  }
+  // Content Description
+  [parallax-description] {
+    font-size: font-size-text('h5') !important;
+    color: theme-colors('textColors', 'secondary') !important;
+    line-height: 20px;
+  }
+    
+      .chat-item {
+        background-color: transparent !important;
+      }
+    
+      .chat-item ion-avatar[item-left] {
+        margin-right: 0px !important;
+      }
+    
+      .chat-item ion-avatar[item-right] {
+        margin-left: 0px !important;
+      }
+    
+      .bubble{
+        background-color: #F2F2F2;
+        border-radius: 5px;
+        box-shadow: 0 0 6px #B2B2B2;
+        display: inline-block;
+        padding: 10px 18px;
+        position: relative;
+        vertical-align: middle;
+      }
+    
+      .bubble::before {
+        background-color: #F2F2F2;
+        content: "\00a0";
+        display: block;
+        height: 16px;
+        position: absolute;
+        top: 11px;
+        transform:             rotate( 29deg ) skew( -35deg );
+        -moz-transform:    rotate( 29deg ) skew( -35deg );
+        -ms-transform:     rotate( 29deg ) skew( -35deg );
+        -o-transform:      rotate( 29deg ) skew( -35deg );
+        -webkit-transform: rotate( 29deg ) skew( -35deg );
+        width:  20px;
+      }
+    
+      .me {
+        float: left;
+        margin: 5px 45px 5px 20px;
+      }
+    
+      .me::before {
+        box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+        left: -9px;
+      }
+    
+      .you {
+        float: right;
+        margin: 5px 20px 5px 45px;
+      }
+    
+      .you::before {
+        box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
+        right: -9px;
+      }
+
+}
+
+button[ion-fab] {
+  overflow: visible;
+  position: relative;
+
+  ion-label {
+      position: absolute;
+      top: -8px;
+      right: 40px;
+
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+      line-height: 24px;
+      padding: 4px 8px;
+      border-radius: 4px;
+  }
+}
+
+.fab{
+  contain: layout;
+}

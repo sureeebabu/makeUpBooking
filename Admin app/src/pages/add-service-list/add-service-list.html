@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Add Service</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <!-- Add service form-->
+  <form #f="ngForm">
+  <ion-card>
+      <ion-card-content>
+      <ion-list no-lines>
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>  
+        <ion-icon name="create" color="head" item-start></ion-icon>
+        <ion-input required type="text" [(ngModel)]="form.name" name="name" placeholder="Service Name"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  </form>
+  
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="addService()">Save</button>
+
+  </ion-content>
+  
+
+  
+             

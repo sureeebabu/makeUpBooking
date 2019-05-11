@@ -1,0 +1,34 @@
+<ion-content padding class="transparent-header">
+    <ion-header>
+      <ion-navbar>
+      </ion-navbar>
+    </ion-header>
+    <!-- Sign up form for Admin-->
+    <h1 style="color:#fff;font-size:30px; padding-top:37px" text-center>ADMIN SIGNUP</h1>
+  
+      <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+      <div padding>
+        <!-- Enter email-->
+          <ion-item>
+              <ion-input type="email" formControlName="email" placeholder="Email"
+              [class.invalid]="!signupForm.controls.email.valid && blur"></ion-input>
+          </ion-item>
+          <ion-item class ="error-message" *ngIf="!signupForm.controls.email.valid && signupForm.controls.email.touched">
+              <p>*Please enter avalid email address</p>
+          </ion-item>
+
+          <!-- Enter Password-->
+          <ion-item>
+              <ion-input type="password" formControlName="password" placeholder="Password"
+              [class.invalid]="!signupForm.controls.password.valid && blur"></ion-input>
+          </ion-item>
+          <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.touched">
+              <p>*Password must be a minimum of 6 charasters</p>
+            </ion-item>
+
+        <button ion-button block outline  color="light" class="login-button" type ="submit" [disabled]="!signupForm.valid">Register</button>
+      </div>
+      </form>
+  </ion-content>
+    
+ 

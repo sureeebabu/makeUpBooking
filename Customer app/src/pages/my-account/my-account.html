@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title>{{'My Account' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content> 
+  <!-- User Image profile containner-->
+    <div style="height: 100%;">
+        <ion-grid class="profileback">
+            <ion-row>
+              <ion-col col-25></ion-col>
+              <ion-col col-50>
+                    <div *ngIf="userProfiles">
+                    <img src="{{ userProfiles.photoURL || 'assets/imgs/pic.jpg'}}" class="circle">
+                    </div>
+                </ion-col>
+              <ion-col col-25></ion-col>
+            </ion-row>
+          </ion-grid>  
+
+        <hr>    
+    <!-- User Account List-->
+        <ion-list>
+          <ion-item (click)="openProfileModal()">
+          <ion-icon name='person' color="head" item-start></ion-icon>
+          <ion-label>{{'My Profile' | translate}}</ion-label>
+         </ion-item>
+ 
+         <ion-item (click)="openOrdersModal()">
+         <ion-icon name='list-box' item-start color="head"></ion-icon>
+         <ion-label>{{'My Orders' | translate}}</ion-label>
+         </ion-item>
+ 
+          <ion-item (click)="openBookingsModal()">
+          <ion-icon name='list-box' item-start color="head"></ion-icon>
+          <ion-label>{{'My Bookings' | translate}}</ion-label>
+          <ion-badge  id="notifications-badge"  item-end>{{(myBookingList)?.length}}</ion-badge>
+          </ion-item>
+
+          <ion-item (click)="openBookingMessageModal()">
+            <ion-icon name='list-box' item-start color="head"></ion-icon>
+            <ion-label>{{'Messages' | translate}}</ion-label>
+            <ion-badge  id="notifications-badge"  item-end>{{(myBookingList)?.length}}</ion-badge>
+            </ion-item>
+
+            <ion-item (click)="openNotificationModal()">
+              <ion-icon name='notifications' item-start color="head"></ion-icon>
+              <ion-label>{{'Notifications' | translate}}</ion-label>
+              <ion-badge  id="notifications-badge"  item-end>{{(notifyList)?.length}}</ion-badge>
+              </ion-item>
+
+           <ion-item (click)="openSettings()">
+           <ion-icon name='settings' item-start color="head"></ion-icon>
+           <ion-label>{{'Settings' | translate}}</ion-label>
+           </ion-item>
+
+            <ion-item (click)="logout()">
+              <ion-icon name='log-out' item-start color="head"></ion-icon>
+              <ion-label>{{'Logout' | translate}}</ion-label>
+            </ion-item>
+
+        </ion-list>
+    </div>
+</ion-content>
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-toolbar color="head">
+    <button ion-button menuToggle>
+        <ion-icon name="menu" color="light"></ion-icon>
+     </button>
+        <ion-title text-center>Products List</ion-title>
+        <ion-buttons end>
+            <button ion-button clear icon-only (click)="add()">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+      <!-- Search for product-->
+        <ion-toolbar color="head">
+          <ion-searchbar [(ngModel)]="searchstring" (input)="searchitem($event)" placeholder="Search Product"></ion-searchbar>
+       </ion-toolbar>
+  
+</ion-header>
+
+<!-- Product list-->
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12>
+        <!-- Content Medium Item With Image-->
+        <ion-list>
+            <ion-item-sliding *ngFor="let item of productList">
+              <ion-item border no-lines>
+            <!--Avatar-->
+            <ion-thumbnail item-left>
+              <img src ="{{item.downloadURL}}">
+            </ion-thumbnail>
+            <!--product name-->
+            <h2 item-title><b>{{item.name}}</b></h2>
+            <h2>
+                <span *ngIf="!item.sale_price"><span color="shadow">Price:{{1*item.regular_price | currency:values.currency:true:'1.2-2'}}</span></span>
+             </h2>
+             <h2>
+                <span *ngIf="item.sale_price"><span color="shadow">Sale Price:{{1*item.sale_price | currency:values.currency:true:'1.2-2'}}</span></span>
+             </h2>
+             <h2>
+                <span primary *ngIf="item.sale_price"><del><span color="danger">Price: {{1*item.regular_price | currency:values.currency:true:'1.2-2'}}</span></del></span>
+             </h2>
+          </ion-item> 
+          <ion-item-options side="right">
+           <button ion-button color="secondary" (click)="edit(item)">
+              <ion-icon name="create"></ion-icon>
+                  Edit Item
+              </button>
+                  <button ion-button color="danger" (click)="deleteProduct(item.id)">
+                  <ion-icon name="trash"></ion-icon>
+                  Delete
+                </button>
+                </ion-item-options>
+              </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+

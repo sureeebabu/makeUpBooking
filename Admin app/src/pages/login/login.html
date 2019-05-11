@@ -1,0 +1,44 @@
+<ion-content padding class="transparent-header">
+    <ion-header>
+      <ion-navbar>
+      </ion-navbar>
+    </ion-header>
+    <h1 style="color:#fff;font-size:30px; padding-top:37px">ADMIN LOGIN</h1>
+    <!-- User Login form-->
+    
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>  
+    <div padding>
+
+      <ion-item>
+        <!-- Enter Email-->
+        <ion-input type="email" formControlName="email" placeholder="Email"
+        [class.invalid]="!loginForm.controls.email.valid && blur"></ion-input>
+      </ion-item>
+      <ion-item class ="error-message" *ngIf="!loginForm.controls.email.valid && loginForm.controls.email.touched">
+          <p>Please enter a valid email address</p>
+      </ion-item>
+
+      <ion-item>
+        <!-- Enter Password-->
+        <ion-input type="password" formControlName="password" placeholder="Password"
+        [class.invalid]="!loginForm.controls.password.valid && blur"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched">
+          <p>Password must be a minimum of 6 charasters</p>
+      </ion-item>
+      <button ion-button block outline  color="light" class="login-button" type ="submit" [disabled]="!loginForm.valid">Login</button>
+      <button ion-button block outline  color="light" class="login-button" type="button" (click)="goSignup()">Sign Up</button>
+    
+    </div>
+    </form>
+
+
+    <div class="strike">
+      <span>OR</span>
+    </div>
+<!-- Submit button here -->
+    <button ion-button block clear  (click)="forgotten()" color="light" class="login-button"><b>Forgot login details</b></button>
+    
+  </ion-content>
+
+  

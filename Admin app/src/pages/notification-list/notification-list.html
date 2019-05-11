@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Notifications List</ion-title>
+      <ion-buttons end>
+          <button ion-button clear icon-only (click)="addNofity()">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+
+<!-- Notification list-->
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+            <ion-item-sliding *ngFor="let item of notifyList">
+              <ion-item border no-lines>
+            <!--Title-->
+            <h2 item-title><b>{{item.notify}}</b></h2>
+            <!--date-->
+            <h3 item-subtitle><span style="font-weight:bold">Date:</span> {{item.dateTime}}</h3>
+          </ion-item> 
+          <ion-item-options side="right">
+                  <button ion-button color="danger" (click)="deletenotify(item.id)">
+                  <ion-icon name="trash"></ion-icon>
+                  Delete
+                </button>
+                </ion-item-options>
+              </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

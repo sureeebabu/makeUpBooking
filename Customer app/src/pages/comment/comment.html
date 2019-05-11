@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="head">
+      <ion-title text-center>{{'Write comment' | translate}}</ion-title>
+      <ion-buttons right>
+        <button (click)="closeModal()" ion-button >    
+            <ion-icon name="close" class="close-modal-icon"></ion-icon>
+        </button>
+    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+  <!-- Comment form-->
+   <form [formGroup]="writtenForm">
+       <ion-item>
+         <ion-label floating> {{'Your Name' | translate}} </ion-label>
+         <ion-input type="text" formControlName="name" [(ngModel)]="fullnameBind"></ion-input>
+       </ion-item>
+         <div class="error-review" *ngIf="writtenForm.get('name').hasError('required') && submitAttempt">
+           <p>* Please enter a review title.</p>
+        </div>
+        <div class="error-review" *ngIf="writtenForm.get('name').hasError('maxlength') && submitAttempt ">
+           <p>* Review title must not be more than 30 charasters.</p>
+         </div>
+        <ion-item>
+         <ion-label floating> {{'Your Comment' | translate}} </ion-label>
+         <ion-textarea type="text" formControlName="comment"></ion-textarea>
+       </ion-item> 
+       <div class="error-review" *ngIf="writtenForm.get('comment').hasError('required') && submitAttempt">
+         <p>* Please enter a review description.</p>
+       </div>
+       <div class="error-review" *ngIf="writtenForm.get('comment').hasError('maxlength') && submitAttempt ">
+        <p>* Review description must not be more than 30 charasters.</p>
+       </div>
+   </form>
+ </ion-content>
+ 
+ <ion-footer>
+   <button ion-button full large color="head" (click)="writeComment()"> 
+       {{'Submit' | translate}}
+   </button>
+ </ion-footer>
+ 
+ 

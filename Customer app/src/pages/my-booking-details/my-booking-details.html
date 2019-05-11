@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="head">
+      <ion-title text-center>{{'Booking Details' | translate}}: </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="bookingDetails" style="margin-bottom:40px">
+  <ion-card>
+       <ion-item>
+          <h2 text-center><b>{{'Booking Details' | translate}}:</b></h2>
+       </ion-item>
+       <!-- Get Booking details-->
+   <ion-item>
+      <h2><span><b>{{'Service Type' | translate}}:</b></span> <span style="padding-left:10px;">{{bookingDetails.service}}</span></h2>
+      <h2><span><b>{{'Booking ID' | translate}}:</b></span> <span style="padding-left:10px;">#{{bookingDetails.bookingNumber}}</span></h2>
+      <h2><span><b>{{'Date Booked' | translate}}:</b></span> <span style="padding-left:10px;">{{bookingDetails.dateTime}}</span></h2> 
+      <h2><span><b>{{'Service Date' | translate}}:</b></span><span style="padding-left:10px;">{{bookingDetails.date}}</span></h2> 
+      <h2><span><b>{{'Service Time' | translate}}:</b></span><span style="padding-left:10px;">{{bookingDetails.time}}</span></h2>
+      <div *ngIf="bookingDetails.status == 'completed'">{{'Status' | translate}}: <ion-badge color="secondary">{{'Completed' | translate}}</ion-badge></div>
+      <div *ngIf="bookingDetails.status == 'processing'">{{'Status' | translate}}: <ion-badge color="process">{{'Processing' | translate}}</ion-badge></div>
+      <div *ngIf="bookingDetails.status == 'pending'">{{'Status' | translate}}: <ion-badge color="pending">{{'Pending' | translate}}</ion-badge></div>
+      <div *ngIf="bookingDetails.status == 'cancelled'">{{'Status' | translate}}: <ion-badge color="danger">{{'Cancelled' | translate}}</ion-badge></div>
+   </ion-item>    
+  </ion-card>
+  </div>
+</ion-content>

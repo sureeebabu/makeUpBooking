@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Send Notification</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <!-- Send notification form-->
+  <form #f="ngForm">
+  <ion-card>
+      <ion-card-content>
+      <ion-list no-lines>
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>
+        <ion-input required type="text" [(ngModel)]="form.notify" name="notify" placeholder="Send notification"></ion-input>
+        </ion-item>
+      </ion-list>   
+    </ion-card-content>
+  </ion-card>
+  </form>
+  <!-- Error occur shows here-->
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="sendNotify()">Send</button>
+
+  </ion-content>
+  

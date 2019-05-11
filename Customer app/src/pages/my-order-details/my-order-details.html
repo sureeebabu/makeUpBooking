@@ -1,0 +1,64 @@
+
+<ion-header>
+   <ion-navbar color="head">
+      <ion-title text-center>{{'Order Details' | translate}}</ion-title>
+   </ion-navbar>
+</ion-header>
+<ion-content class="order-info">
+   <ion-spinner *ngIf="!orderDetails" name="crescent" style="display:block; margin-left: auto; margin-right:auto; margin-top: 5px; margin-bottom:5px" ></ion-spinner>
+<!-- Order details -->
+<div *ngIf="orderDetails">
+<ion-list>
+  <ion-item *ngFor="let item of orderDetails.items">
+    <ion-thumbnail item-start>
+      <img src="{{item.image}}">
+    </ion-thumbnail>
+    <h2>{{item.name}}</h2>
+    <p>{{'Price' | translate}}:  {{item.price | currency:values.currency:true:'1.2-2'}}</p>
+    <p>{{'Quantity' | translate}}:  {{item.quantity}}</p>
+    <h2>{{'SubTotal' | translate}}:  {{1*item.price*item.quantity | currency:values.currency:true:'1.2-2'}}</h2>
+  </ion-item>
+</ion-list>
+<!-- Order details -->
+<ion-list>
+<ion-item style="background-color: #660066;">
+    <h1 style="margin:0px; color:#fff;">{{'Order Details' | translate}} </h1>
+</ion-item>
+<div padding>
+    <h2><span style="font-weight: bold;">{{'Order ID' | translate}}:</span> {{orderDetails.orderNumber}}</h2>
+    <h2><span style="font-weight: bold;">{{'Payment Type' | translate}}:</span> {{orderDetails.payments.PaymentType}}</h2>
+    <div *ngIf="orderDetails.status == 'completed'">{{'Status' | translate}}: <ion-badge color="secondary">{{'Completed' | translate}}: </ion-badge></div>
+    <div *ngIf="orderDetails.status == 'processing'">{{'Status' | translate}}: <ion-badge color="process">{{'Processing' | translate}}: </ion-badge></div>
+    <div *ngIf="orderDetails.status == 'pending'">{{'Status' | translate}}:  <ion-badge color="pending">{{'Pending' | translate}}: </ion-badge></div>
+    <div *ngIf="orderDetails.status == 'cancelled'">{{'Status' | translate}}:  <ion-badge color="danger">{{'Cancelled' | translate}}: </ion-badge></div>
+</div>
+<!-- Customer Details -->
+     <ion-item style="background-color: #660066;">
+            <h1 style="margin:0px; color:#fff;">{{'Customer Details' | translate}}</h1>
+         </ion-item>
+      <div padding>
+      <h2><span style="font-weight: bold;">{{'Name' | translate}}: </span><span style="padding-left:25px;">{{orderDetails.customerDetails.displayName}}</span></h2>
+      <h2><span style="font-weight: bold;">{{'Email' | translate}}: </span><span style="padding-left:25px;">{{orderDetails.customerDetails.email}}</span></h2>
+      <h2><span style="font-weight: bold;">{{'Phone Number' | translate}}: </span><span style="padding-left:25px;">{{orderDetails.customerDetails.phoneNumber}}</span></h2>
+      <h2><span style="font-weight: bold;">{{'Address' | translate}}: </span><span style="padding-left:25px;" text-wrap>{{orderDetails.customerDetails.address}}</span></h2>
+      <h2><span style="font-weight: bold;">{{'Date' | translate}}: </span><span style="padding-left:25px;">{{orderDetails.timeStamp | date}}</span></h2>
+      </div>
+      </ion-list>
+      <br>
+   </div>
+</ion-content>                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        

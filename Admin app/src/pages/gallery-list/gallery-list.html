@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Gallery List</ion-title>
+        <ion-buttons end>
+          <button ion-button clear icon-only (click)="addGallery()">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<!-- Gallery List-->
+<ion-content>
+<ion-grid no-padding>
+  <ion-row>
+    <ion-col col-12>
+      <!-- Content Medium Item With image-->
+      <ion-list>
+          <ion-item-sliding *ngFor="let item of galleryList">
+            <ion-item border no-lines>
+          <!--image-->
+          <ion-thumbnail item-left>
+            <img src ="{{item.downloadURL}}">   
+          </ion-thumbnail>
+          <!--Title-->
+          <h2 item-title><b>{{item.title}}</b></h2>
+        </ion-item> 
+        <ion-item-options side="right">
+         <button ion-button color="secondary" (click)="edit(item)">
+            <ion-icon name="create"></ion-icon>
+                Edit Item
+            </button>
+                <button ion-button color="danger" (click)="deletegallery(item.id)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+              </ion-item-options>
+            </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+
+
+

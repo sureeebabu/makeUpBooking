@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>Update Order</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- Update order-->
+<ion-content padding>
+  <div *ngIf="order" style="margin:15px 5px 5px 5px;">
+    <ion-list>
+       <ion-item style="padding-top:10px" class="option">
+          <ion-label>Status</ion-label>
+          <ion-select [(ngModel)]="order.status" name="status">
+          <ion-option value="pending">Pending</ion-option>
+          <ion-option value="processing">Processing</ion-option>
+          <ion-option value="completed">Completed</ion-option>
+          <ion-option value="cancelled">Cancelled</ion-option>
+          </ion-select>
+       </ion-item>
+    </ion-list>
+
+    <div class="error-message">
+         <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+      </div>
+
+    <div style="margin:5px;">
+       <button ion-button block color="head" [disabled]="disableSubmit" (click)="updateStatus()">Update</button>
+    </div>
+
+    <br>
+ </div>       
+</ion-content>

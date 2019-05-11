@@ -1,0 +1,102 @@
+page-product-details {
+
+  @include settingAnimationHeader;
+
+  .scroll-content {
+    top: -56px;
+  }
+  // Settings Big Image
+  [background-size] {
+    height: 66%;
+    position: relative;
+  }
+  // Settings Action Shit
+  [button-action-shit] {
+    top: 56px;
+    right: 16px;
+  }
+
+  ion-item-divider {
+    .label-ios,
+    .label-md {
+      margin: 0 !important;
+    }
+
+    ion-badge {
+      position: absolute;
+      bottom: -1px;
+      right: 5px;
+    }
+    // New Category
+    [new-category] {
+      display: block;
+      font-size: 11px;
+      color: theme-colors('textColors', 'accent') !important;
+      margin-bottom: 5px;
+      font-weight: 500 !important;
+      letter-spacing: 1px;
+    }
+    // Parallax Title
+    [parallax-title] {
+      color: theme-colors('textColors', 'accentDark') !important;
+      font-size: font-size-text('h2') !important;
+      margin-bottom: 5px;
+    }
+    // Parallax Title
+    [parallax-subtitle] {
+      color: theme-colors('textColors', 'secondary') !important;
+      font-size: font-size-text('h3') !important;
+    }
+  }      
+
+  }
+
+
+
+.cart-icon{
+  font-size: 25px;
+}
+
+#notification-button {            
+  position: relative;
+  width: 42px;
+  top:1px;
+  right: 1px;
+  overflow: visible!important;
+}
+
+
+#notifications-badge {
+  background-color: red;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  border-radius: 100%;
+}
+
+
+button[ion-fab] {
+  overflow: visible;
+  position: relative;
+
+  ion-label {
+      position: absolute;
+      top: -8px;
+      right: 40px;
+
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+      line-height: 24px;
+      padding: 4px 8px;
+      border-radius: 4px;
+  }
+}
+
+.fab{
+  contain: layout;
+}
+
+
+.circle{
+border-radius: 100%;
+}

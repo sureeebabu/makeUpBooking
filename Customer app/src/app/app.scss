@@ -1,0 +1,128 @@
+// http://ionicframework.com/docs/theming/
+
+@font-face{
+	font-family: Lato;
+	src: url('../assets/fonts/Lato.woff2') format('woff2');
+    }
+    
+    @import "../theme/common";
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+#menu1 {
+  button {
+    padding-left: 7px;
+  }
+
+  .menu-inner {
+    width:35vh;
+    
+  }
+  @media screen and (orientation: landscape) {
+    .menu-inner {
+      width: 20vh;
+     
+    }
+  }
+
+}
+
+#menu2 {
+  button {
+    padding-left: 7px;
+  }
+
+  .menu-inner {
+    width: 35vh;
+    
+  }
+  @media screen and (orientation: landscape) {
+    .menu-inner {
+      width: 20vh;
+     
+    }
+  }
+
+}
+
+
+.popover-wrapper .popover-content {
+    box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.25);
+}
+
+.activePage{
+	background-color: map-get($colors, Maroon);
+}
+
+ion-app .nav-decor{
+    background-color: transparent !important;
+  }
+
+.myBg{
+  background: linear-gradient(0deg, rgba(77, 38, 0, 0.84) 0%, rgba(255, 102, 163, 0.35) 100%) !important;
+   //background: linear-gradient(0deg, rgba(102, 0, 102, 0.84) 0%, rgba(155, 1, 155, 0.35) 100%) !important;
+  //background: linear-gradient(0deg, rgba(255, 26, 117, 0.84) 0%, rgba(255, 102, 163, 0.35) 100%) !important;
+  //background: linear-gradient(0deg, rgba(104, 8, 247, 0.84) 0%, rgba(5, 42, 250, 0.35) 100%) !important;
+           
+}
+
+ .pagelist {
+	margin: 0;
+	font-family: 'Lato';
+    padding: 10px 0 10px 20px;                 
+  font-size: 15px;
+  outline: 0 none;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translateZ(1px);
+     -moz-transform: translateZ(1px);
+      -ms-transform: translateZ(1px);
+       -o-transform: translateZ(1px);
+          transform: translateZ(1px);
+  z-index: 1;
+ }
+
+.navicon{
+    font-size: 30px;
+}
+
+.card-background-page {
+
+    [background-size] {
+      @include darkening-blend-mode;
+      height: 250px;
+      position: relative;
+  
+      ion-thumbnail {
+        opacity: 1 !important;
+  
+        img {
+          border-radius: 50% !important;
+          height: 92px;
+          width: 92px;
+          margin: 20px auto 0;
+        }
+      }
+    }
+  
+  }
+
+
+
+
+
+
+

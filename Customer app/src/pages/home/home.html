@@ -1,0 +1,61 @@
+    <ion-header no-border>
+		<ion-navbar transparent>
+			 <ion-buttons left>
+					<button ion-button menuToggle>
+						<ion-icon name="menu"></ion-icon>
+					</button>
+			</ion-buttons>
+            <ion-buttons end>
+
+				<!-- Product count icon in cart-->
+			<button ion-button id="notification-button" (click)="pushToCart($event)" >
+				<ion-icon name="cart" class="cart-icon">
+				<ion-badge  id="notifications-badge" color="danger">{{values.qty}}</ion-badge>
+				</ion-icon>
+				</button>
+				<!-- Notification count icon-->
+				<button ion-button id="notification-button" (click)="goNotify()" >
+					<ion-icon name="notifications" class="cart-icon">
+					<ion-badge id="notifications-badge" color="danger">{{(notifyList)?.length}}</ion-badge>
+					</ion-icon>
+					</button>
+			</ion-buttons>
+		</ion-navbar>
+	</ion-header>
+	
+	<ion-content fullscreen class="cont">
+     <!-- Slider Banner top-->
+		<ion-slides pager loop="true" autoplay="3000">
+			<ion-slide *ngFor="let item of steps"
+								class="slide-background"
+								[ngStyle]="{ 'background': 'url(' + item.imageUrl + ')'}">
+				<div class="slide-content">
+					<span class="header-font big-title uppercase">{{ item.title | translate}}</span>
+					<small class="uppercase"></small>
+					<small class="bottom-text uppercase">{{ item.extra | translate}}</small>
+					<button ion-button round color="chocolate">{{'Book Service' | translate}}</button>
+				</div>
+			</ion-slide> 
+		</ion-slides>  
+
+		<ion-list>     
+			<ion-item no-lines>
+					<h3 text-center class="catcat"><b>{{'Services' | translate}}</b></h3>
+			</ion-item>
+			<!-- Service Banner at bottom-->
+			<div>
+		  <ion-spinner *ngIf="!serviceList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner>
+			<ion-grid>        
+					<ion-row wrap>   
+					  <ion-col col-6 *ngFor="let service of serviceList" >
+						<ion-item class="cat2">
+						<img class="expanded-image"  src="{{service.downloadURL}}" />
+						<h5 text-center><b>{{service.title}}</b></h5>
+						</ion-item>
+					  </ion-col> 
+					</ion-row>
+				</ion-grid> 
+			</div>
+		</ion-list>  
+
+	</ion-content>

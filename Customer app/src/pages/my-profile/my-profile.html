@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-navbar color="head">
+      <ion-title text-center>{{'My Profile' | translate}}</ion-title>
+      <ion-buttons right>
+        <button (click)="closeModal()" ion-button >    
+            <ion-icon name="close" class="close-modal-icon"></ion-icon>
+        </button>
+    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+  
+ <ion-content>
+      <!-- User Image Profile container-->
+        <div style="height: 100%;">
+          <ion-grid class="profileback">
+              <ion-row>
+                <ion-col col-25></ion-col>  
+                <ion-col col-50>
+                       <div>
+                            <img src="{{ downloadURL  || 'assets/imgs/pic.jpg' }}" class="circle">
+                          </div>
+                        <input type="file" name="uploadfile" id="img" (change)="onChange($event)" style="display:none;"/>
+                        <label for="img" class="pic" style="color:#000;font-size:15px;"><ion-icon name="image"></ion-icon></label>
+                        <label style="color:#fff;font-size:15px;">Upload</label>
+                       </ion-col>
+                <ion-col col-25></ion-col>
+              </ion-row>
+            </ion-grid>
+
+          <hr> 
+     <!-- User profile which user can easily edit-->
+          <ion-list inset *ngIf="userProfiles">
+              <ion-item>
+              <ion-icon name='person' color="head" item-start></ion-icon>
+              <ion-label>{{userProfiles.displayName}} {{userProfiles.lastName}}</ion-label>
+              <ion-label (click)="address(userProfiles)" *ngIf="!userProfiles.displayName">{{'Edit your Name' | translate}}</ion-label>
+              <ion-icon item-right color="head" name="create"></ion-icon>
+            </ion-item>
+     
+             <ion-item>
+                <ion-icon name='mail' color="head" item-start></ion-icon>
+                <ion-label *ngIf="userProfiles.email"> {{userProfiles.email}}</ion-label>
+                <ion-label *ngIf="!userProfiles.email">{{'Edit your Email' | translate}}</ion-label>
+                <ion-icon item-right color="head" name="create"></ion-icon>
+              </ion-item>
+
+               <ion-item>
+                  <ion-icon name='list-box' color="head" item-start></ion-icon>
+                  <ion-label *ngIf="userProfiles.address">{{userProfiles.address}}</ion-label>
+                  <ion-label *ngIf="!userProfiles.address">{{'Edit your Address' | translate}}</ion-label>
+                  <ion-icon item-right color="head" name="create"></ion-icon>
+                </ion-item>  
+
+                 <ion-item>
+                    <ion-icon name='call' color="head" item-start></ion-icon>
+                    <ion-label *ngIf="userProfiles.phoneNumber">{{userProfiles.phoneNumber}}</ion-label>
+                    <ion-label *ngIf="!userProfiles.phoneNumber">{{'Edit your Phone' | translate}}</ion-label>
+                    <ion-icon item-right color="head" name="create"></ion-icon>
+                </ion-item>
+               </ion-list>
+
+          </div>
+        </ion-content>
+      <!-- Update user profile -->
+        <ion-footer>
+          <ion-toolbar>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <button ion-button color="head" (click)="savePic()" block>Save picture</button>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button color="head" block (click)="update(userProfiles)">Update profile</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-toolbar>    
+      </ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+         

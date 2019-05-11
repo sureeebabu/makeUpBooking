@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Bookings</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content no-padding>
+  <!-- Booking List-->
+<ion-card margin-top class="whiteBackground" *ngFor="let item of bookingList">
+  <ion-item>
+      <h2><span><b>Service Type:</b></span> <span style="padding-left:10px;">{{item.service}}</span></h2>
+      <h2><span><b>Booking ID:</b></span> <span style="padding-left:10px;">#{{item.bookingNumber}}</span></h2>
+      <h2><span><b>Date Booked:</b></span> <span style="padding-left:10px;">{{item.dateTime}}</span></h2> 
+      <div *ngIf="item.status == 'completed'">Status: <ion-badge color="secondary">Completed</ion-badge></div>
+      <div *ngIf="item.status == 'processing'">Status: <ion-badge color="process">Processing</ion-badge></div>
+      <div *ngIf="item.status == 'pending'">Status: <ion-badge color="pending">Pending</ion-badge></div>
+      <div *ngIf="item.status == 'cancelled'">Status: <ion-badge color="danger">Cancelled</ion-badge></div>
+  </ion-item>   
+           
+   <ion-item>
+        <div item-right>
+          <button ion-button (click)="update(item)" color="head">Action</button>
+        </div>
+
+        <div item-right>
+          <button ion-button (click)="bookingDetailsPage(item)" color="secondary">Details</button>
+        </div>
+
+        <div item-right *ngIf="item.status == 'completed'">
+          <button ion-button color="danger" (click)="deleteBook(item.id)"  color="danger">Delete</button>
+        </div>
+
+        <div item-right *ngIf="item.status == 'cancelled'">
+          <button ion-button color="danger"(click)="deleteBook(item.id)" color="danger">Delete</button>
+         </div>
+
+         <div item-right>
+            <button ion-button icon-only clear  (click)="comment(item)">
+              <ion-icon name="text"></ion-icon>
+            </button>
+           </div>
+   </ion-item>
+</ion-card>
+</ion-content>
+

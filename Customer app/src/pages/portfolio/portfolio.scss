@@ -1,0 +1,96 @@
+page-portfolio {
+
+    ion-card {
+        position: relative;
+        height: 120px;
+        width: calc(100% - 6px) !important;
+        margin: 6px 3px 0 3px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .accordion-list {
+        background: color($colors, light);
+        height: 100%;
+    }
+    .section {
+        background: #fff;
+        color: #000;
+        margin-bottom: 4px;
+    }
+    .section-active {
+        background: #161616;
+        color: #fff;
+    }
+ 
+    .child {
+        background: #e8e7e6;
+        color: #000;
+        margin-bottom: 4px;
+    }
+    .child-item {
+        background: #f3f2f1;
+        padding: 10px;
+    }
+    .label {
+        margin: 0px;
+    }
+    .list {
+        margin-bottom: 4px;
+    }
+
+    .item-avatar{
+      border-radius: 10%;
+      height: 100px;
+    }
+
+    .section-title {
+        font-size: 19px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .categories-wrapper {
+        .categories-buttons-wrapper {
+            height: 80px;
+
+            .scroll-zoom-wrapper {
+                display: inline-flex;
+                flex-direction: row;
+            } 
+        }   
+    }
+
+    .videos-wrapper {
+        .youtube-video-cell {
+            cursor: pointer;
+            
+            img {
+                width: 120px;
+            }
+        }
+    }
+	
+	.forms-examples-content
+	{
+		background-color: color($colors, background, base);
+
+		.forms-examples-segment
+		{
+			padding: 14px 0px;
+			background-color: $white;
+			@include element-shadow();
+
+			@include segment-button-styles($theme-color-2);
+
+			.segment-button
+			{
+				@include segment-text-styles($white-d);
+			}
+		}
+
+			
+        }
+
+    }
+

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="head">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+   </button>
+      <ion-title text-center>Categorys</ion-title>
+      <ion-buttons end>
+          <button ion-button clear icon-only (click)="addCat()">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+      <!-- Search for category-->
+      <ion-toolbar color="head">
+        <ion-searchbar [(ngModel)]="searchstring" (input)="searchitem($event)" placeholder="Search Category"></ion-searchbar>
+     </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<ion-grid no-padding>
+  <ion-row>
+    <ion-col col-12>
+      <!-- Category list with image-->
+      <ion-list>
+          <ion-item-sliding *ngFor="let item of categoryList">
+            <ion-item border no-lines>
+          <!--image-->
+          <ion-thumbnail item-left>
+            <img src ="{{item.downloadURL}}">
+          </ion-thumbnail>
+          <!--Title-->
+          <h2 item-title><b>{{item.name}}</b></h2>
+          <!--Description-->
+          <h3 item-subtitle><span style="font-weight:bold">Description:</span>{{item.description}}</h3>
+        </ion-item> 
+        <ion-item-options side="right">
+         <button ion-button color="secondary" (click)="editCategory(item)">
+            <ion-icon name="create"></ion-icon>
+                Edit Item
+            </button>
+                <button ion-button color="danger" (click)="deleteCat(item.id)">
+                <ion-icon name="trash"></ion-icon>
+                Delete
+              </button>
+              </ion-item-options>
+            </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>{{'Terms & Privacy' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<div *ngFor="let item of privacyList">
+  <h3>{{'Updated at' | translate}} {{item.dateTime}}</h3>
+<p text-wrap>{{item.privacy}}</p>
+</div>
+</ion-content>

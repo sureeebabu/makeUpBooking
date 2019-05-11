@@ -1,0 +1,25 @@
+<ion-menu [content]="content"  side="left" id="menu-left" >
+  <ion-header>
+  
+  </ion-header>
+
+  <ion-content>
+    <ion-list no-lines>
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+             <div class="pagelist">
+                <ion-icon name="{{p.icon}}"  style="padding-left:20px; font-size:20px;"></ion-icon>
+                <label style="padding-left:20px; font-size:15px;">{{ p.title }}</label>
+              </div>
+        </button>
+        <button menuClose ion-item (click)="logout()">
+          <div class="pagelist">
+             <ion-icon name="log-out"  style="padding-left:20px; font-size: 20px;"></ion-icon>
+             <label style="padding-left:20px; font-size:20px;">Logout</label>
+           </div>
+     </button>
+      </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>

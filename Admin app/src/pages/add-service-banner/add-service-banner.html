@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Add Banner</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+  <form #f="ngForm">
+  <ion-card>
+      <ion-card-content>
+      <ion-list no-lines>
+        <!-- Service Banner image-->
+        <div class="spacer" style="height:5px;"></div>
+        <ion-item  style="padding-left:125px">
+              <ion-thumbnail>
+                 <img src="{{downloadURL || 'assets/imgs/image.jpg'}}">
+              </ion-thumbnail>
+              <input type="file" name="uploadfile" id="img" (change)="onChange($event)" style="display:none;"/>
+              <label for="img" style="color:#000; font-size: 20px;">Choose Image</label> 
+        </ion-item>  
+        
+        <div class="spacer" style="height: 10px;"></div>
+        <ion-item>
+        <ion-icon name="create" color="head" item-start></ion-icon>
+        <ion-input required type="text" [(ngModel)]="form.title" name="name" placeholder="Banner title"></ion-input>
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  </form>
+  
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="addService()">Save</button>
+
+  </ion-content>
+  
+
+  
+             

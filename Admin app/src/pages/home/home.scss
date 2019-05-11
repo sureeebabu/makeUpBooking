@@ -1,0 +1,174 @@
+page-home {
+
+     
+    .movie-card1 {
+        height: 100px;
+        background: linear-gradient(0deg, rgba(255, 163, 26, 0.15) 0%, rgba(255, 173, 51, 0.85) 100%) !important;
+        
+    }
+    
+    
+    .movie-card2 {
+        height: 100px;
+        background: linear-gradient(0deg, rgba(0, 153, 0, 0.15) 0%, rgba(0, 128, 0, 0.85) 100%) !important;
+        
+    }
+    
+    
+    .movie-card3 {
+        height: 100px;
+        background: linear-gradient(0deg, rgba(255, 71, 26, 0.15) 0%, rgba(255, 51, 0, 0.85) 100%) !important;
+        
+        
+    }
+    
+    
+    .movie-card4 {
+        height: 100px;
+        background: linear-gradient(0deg, rgba(26, 83, 255, 0.15) 0%, rgba(0, 64, 255, 0.85) 100%) !important;
+        
+    }
+    
+    
+    .movie-card5 {
+        height: 100px;
+        background: linear-gradient(0deg, rgba(204, 0, 204, 0.15) 0%, rgba(153, 0, 153, 0.85) 100%) !important;
+        
+    }
+    
+    
+    .movie-card6 {
+        height: 100px;
+        background: linear-gradient(0deg, rgba(51, 51, 51, 0.15) 0%, rgba(13, 13, 13, 0.85) 100%) !important;
+        
+    }
+    
+    
+    
+    ion-icon {
+        position: absolute;
+        top: 25%;
+        left: 34%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        display: block;
+        color: #fff;
+        font-size: 35px;
+    }
+    
+    .mailicon {
+        color: #fff;
+        font-size: 25px;
+    }
+    
+    .mainpoint{
+        top: 20%;
+        position: absolute;
+        left: 45%;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    .mainnumber{
+        top: 45%;
+        position: absolute;
+        left: 55%;
+        color: #fff;
+        font-size: 30px;
+        font-weight: bolder;
+    }
+    
+    .ico1{
+        background: #e68a00;
+        width: 55px;
+        top: 25%;
+        left: 10%;
+        height: 55px;
+        display: block;
+        position: relative;
+        border-radius: 100%;
+    }
+    
+    .ico2{
+        background: #006600;
+        width: 55px;
+        top: 25%;
+        left: 10%;
+        height: 55px;
+        display: block;
+        position: relative;
+        border-radius: 100%;
+    }
+    
+    .ico3{
+        background: #ff3300;
+        width: 55px;
+        top: 25%;
+        left: 10%;
+        height: 55px;
+        display: block;
+        position: relative;
+        border-radius: 100%;
+    }
+    
+    .ico4{
+        background: blue;
+        width: 55px;
+        top: 25%;
+        left: 10%;
+        height: 55px;
+        display: block;
+        position: relative;
+        border-radius: 100%;
+    }
+    
+    .ico5{
+        background: #800080;
+        width: 55px;
+        top: 25%;
+        left: 10%;
+        height: 55px;
+        display: block;
+        position: relative;
+        border-radius: 100%;
+    }
+    
+    .ico6{
+        background: #000000;
+        width: 55px;
+        top: 25%;
+        left: 10%;
+        height: 55px;
+        display: block;
+        position: relative;
+        border-radius: 100%;
+    }
+    
+    .chartcard{
+        //margin: 0 !important;
+        //width: 100% !important;
+        //height: 100%;
+    }
+    
+    #notification-button {            
+        position: relative;
+        width: 42px;
+        top:1px;
+        right: 1px;
+        overflow: visible!important;
+    }
+    
+    
+    #notifications-badge {
+        background-color: red;
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        border-radius: 100%;
+    }
+    
+
+}

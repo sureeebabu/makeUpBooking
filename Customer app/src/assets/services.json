@@ -1,0 +1,136 @@
+{
+    "items": [
+        {
+            "name": "Tatto",
+            "children": [
+                {    
+                    "image": "assets/imgs/tatto.jpg",
+                    "name": "Permanent",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$2500"
+                },
+             {     
+                   "image": "assets/imgs/tatto2.jpg",
+                    "name": "Temporary",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$1900"
+                }
+            ]
+        },
+        {
+            "name": "Facial",
+            "children": [
+                {    
+                    "image": "assets/imgs/tatto.jpg",
+                    "name": "Permanent",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$2500"
+                },
+             {     
+                   "image": "assets/imgs/tatto2.jpg",
+                    "name": "Temporary",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$1900"
+                }
+            ]
+        },
+        {
+            "name": "Massage",
+            "children": [
+                {    
+                    "image": "assets/imgs/tatto.jpg",
+                    "name": "Permanent",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$2500"
+                },
+             {     
+                   "image": "assets/imgs/tatto2.jpg",
+                    "name": "Temporary",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$1900"
+                }
+            ]
+        },
+        {
+            "name": "Makeup",
+            "children": [
+                {
+                    "name": "Wedding",
+                    "children": [
+                        {
+                            "image":"assets/imgs/bride.jpg",
+                            "name": "Bridal makeup",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$2000 - $5000"
+                        },
+                        {
+                            "image":"assets/imgs/bridefriend.jpg",
+                            "name": "Bridal friends",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$500 - $2500"
+                        }
+                    ]
+                },
+                {
+                    "name": "Modalling",
+                    "children": [
+                        {
+                            "image":"assets/imgs/model.jpg",
+                            "name": "White",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$1300"
+                        },
+                        {
+                            "image":"assets/imgs/black.jpg",
+                            "name": "Black",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$1400"
+                        },
+                        {
+                            "image":"assets/imgs/tatto.jpg",
+                            "name": "Latino",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$1100"
+                        },
+                        {
+                            "image":"assets/imgs/tatto.jpg",
+                            "name": "Albino",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$1400"
+                        }
+                    ]
+                },
+                {
+                    "name": "Artist",
+                    "children": [
+                        {
+                            "name": "Women",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$2500"
+                        },
+                        {
+                            "name": "Men",
+                            "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                            "price": "$1900"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Training",
+            "children": [
+                {
+                    "name": "Professional",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$5000"
+                },
+                {
+                    "name": "Amateuer",
+                    "information": "Lorem ipsum dolor sit amet, consectetur adipiscing.",
+                    "price": "$2500"
+                }
+            ]
+        }
+    ]
+}

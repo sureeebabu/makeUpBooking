@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="head">
+    <ion-title text-center>{{'My Orders' | translate}}</ion-title>
+      <ion-buttons right>
+          <button (click)="closeModal()" ion-button >    
+              <ion-icon name="close" class="close-modal-icon"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+ <ion-content>
+   <!-- Spinner show before the order list showup-->
+    <ion-spinner *ngIf="!myOrderList" name="crescent" style="display:block; margin-left: auto; margin-right:auto; font-size: 20px; font-weight:bold" ></ion-spinner>
+        <div *ngIf="myOrderList">
+        <div *ngFor="let item of myOrderList">
+            <ion-card>  
+                <!-- Order Details-->
+                <ion-item color="light" *ngFor="let post of item.items">
+                <div (click)="getOrderDetails(item.id)">
+                     <h2>{{'Product Name' | translate}}: <span item-right>{{post.name}}</span></h2>
+                    <h2>{{'Price' | translate}}: <span item-right>${{post.price}}</span></h2>
+                    <h2>{{'Qty' | translate}}: <span item-right>{{post.quantity}}</span></h2> 
+                    <p>{{'Date' | translate}}: {{item.dateTime}}</p>
+                    <p>{{'Total' | translate}}: ${{item.total}}</p>
+                    </div>
+                    <button ion-button clear item-end (click)="deleteOder(item.id)">
+                        <ion-icon name="trash" class="cart-trash" color="head"></ion-icon>
+                    </button>
+                    <button ion-button clear item-end (click)="getOrderDetails(item.id)">
+                    {{'View' | translate}}
+                    </button>
+                  </ion-item>
+            </ion-card>
+            </div>
+        </div>
+ </ion-content>
+
+
+

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="head">
+     <ion-title text-center>Edit Privacy</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="background">
+<div *ngIf="prvcy">
+  <ion-card>
+    <!-- Edit Privacy-->
+      <ion-card-content>
+      <ion-list no-lines> 
+        <div class="spacer" style="height: 5px;"></div>
+        <ion-item>
+        <ion-icon name="create" color="head" item-start></ion-icon>
+        <ion-textarea rows="6" required type="text" [(ngModel)]="prvcy.privacy"  placeholder="Privacy"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <div class="error-message">
+      <ion-label color="danger" text-wrap>{{errorMessage}}</ion-label>
+   </div>
+ <button ion-button block color="head" [disabled]="disableSubmit" (click)="editPrvcy()">Save</button>
+</div>
+  </ion-content>
+  
+
+  
